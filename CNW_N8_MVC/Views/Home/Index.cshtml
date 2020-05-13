@@ -1,0 +1,388 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Home.cshtml";
+}
+
+<section class="top-destination home-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="fs32">Những Địa Danh Nổi Tiếng</h2>
+
+        </div>
+        <div class="top-destination-list mt-5">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/HaNoi.jpg" alt="">
+                            <div class="centered text-white">Hà Nội</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/SaiGon.jpg" alt="">
+                            <div class="centered text-white">Sài Gòn</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/DaNang.jpg" alt="">
+                            <div class="centered text-white">Đà Nẵng</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/DaLat.jpg" alt="">
+                            <div class="centered text-white">Đà Lạt</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/Sapa.jpg" alt="">
+                            <div class="centered text-white">Sapa</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/PhuQuoc.jpg" alt="">
+                            <div class="centered text-white">Phú Quốc</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/HoiAn.jpg" alt="">
+                            <div class="centered text-white">Hội An</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="destination-item">
+                        <a href="@Url.Action("HotelList", "Location")">
+                            <img src="/Content/img/NhaTrang.jpg" alt="">
+                            <div class="centered text-white">Nha Trang</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="featured-ticket home-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="fs32">Khách Sạn</h2>
+            <h3 class="fs16">Khách Sạn Được Khuyên Bởi Đa Số Người Dùng</h3>
+        </div>
+        <div class="position-relative full-width pt-5">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Hotel")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 67.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Hà Nội</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Khách Sạn Hà Nội</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>&#8365; 452,029 đ/Đ</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b>&#8365; 302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Hotel")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 66.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Sài Gòn</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Khách Sạn Sài Gòn</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>439,902 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b> 302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Hotel")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 65.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Đà Lạt</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Khách Sạn Đà Lạt</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>633,300 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Hotel")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 64.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Sapa</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Khác Sạn Sapa</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>122,505 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="@Url.Action("List", "Hotel")">
+                    <div class="more-destination d-inline-block align-items-center">
+                        <i class="fas fa-map-marker-alt fs20 d-inline-block"></i>
+                        <span class="d-inline-block">Xem tất cả Hotel</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="featured-ticket home-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="fs32">HOME STAY</h2>
+            <h3 class="fs16">Home Stay được khuyên dùng bởi đa số người dùng</h3>
+        </div>
+        <div class="position-relative full-width pt-5">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Homestay")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 67.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Hà Nội</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Homestay Hà Nội</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>452,029 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b> 302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Homestay")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 66.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Sài Gòn</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Homestay Sài Gòn</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>439,902 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Homestay")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 65.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Đà Lạt</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Homestay Đà Lạt</p>
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>633,300 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="soutchai-item">
+                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                            <a href="@Url.Action("Detail", "Homestay")">
+                                <div class="soutchai-item-img">
+                                    <img src="/Content/img/Group 64.png" />
+                                    <div class="top-left">
+                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                        <span class="t_white">Sapa</span>
+                                    </div>
+                                </div>
+                                <ul class="">
+                                    <li class="position-relative">
+                                        <p class="title">Homestay Sapa</p>
+                                    </li>
+                                    <li class="fs12 text-grey-light star_box">
+
+                                    </li>
+                                    <li class="price pt-2">
+                                        <p class="fs12 text-grey">
+                                            <del>122,505 đ/Đêm</del>
+                                        </p>
+                                        <p>
+                                            <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="@Url.Action("List", "Homestay")">
+                    <div class="more-destination d-inline-block align-items-center">
+                         <i class="fas fa-map-marker-alt fs20 d-inline-block"></i>
+                         <span class="d-inline-block">Xem tất cả Homestay</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="partner mt-5">
+    <div class="container">
+        <div class="partner-brand">
+            <h2 class="fs32 text-center">ĐỐI TÁC</h2>
+            <h3 class="fs16 text-grey-light2 text-center">Đối Tác Chiến Lược Của TTHT Travel</h3>
+            <div class="partner-logo-box">
+                <div class="partner-icon">
+                    <a href="#">
+                        <img src="/Content/img/partner-1.png" alt="">
+                    </a>
+                </div>
+                <div class="partner-icon">
+                    <a href="#">
+                        <img src="/Content/img/partner-2.png" alt="">
+                    </a>
+                </div>
+                <div class="partner-icon">
+                    <a href="#">
+                        <img src="/Content/img/partner-3.png" alt="">
+                    </a>
+                </div>
+                <div class="partner-icon">
+                    <a href="#">
+                        <img src="/Content/img/partner-4.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="Content/vendor/jquery/jquery-3.4.1.min.js"></script>
+<script src="Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="Content/vendor/fontawesome/js/all.min.js"></script>
+<script src="Content/vendor/swiper/dist/js/swiper.min.js"></script>
+<script src="Content/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="Content/js/common.js"></script>

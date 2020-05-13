@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = " User Detail";
+    Layout = "~/Views/Shared/List.cshtml";
+}
+
+<section class="main-content bg-grey">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <div class="user-info-box bg-white">
+                    <div class="user-profile-img">
+                        <img src="/Content/img/profile-user.png" alt="">
+                    </div>
+                    <h5 class="user-name">USER</h5>
+                    <table class="table table-bordered user-promote-table">
+                    </table>
+                    <div class="user-menu-box">
+                        <ul class="text-left">
+                            <li class="align-items-center d-flex">
+                                <img src="./font/notepad.svg" alt=""></img>
+                                <a href="@Url.Action("Booking", "User")" class="ml-2">Đơn Hàng</a>
+                            </li>
+                            <li class="align-items-center d-flex selected">
+                                <img src="./font/cogwheel.svg" alt=""></img>
+                                <a href="@Url.Action("Config", "User")" class="ml-2">Cài Đặt</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="user-main-box bg-white">
+                    <div class="p-2 account-information">
+                        <p class="semi-bold fs16 filter-accordion">
+                            Thông Tin Người Dùng
+                        </p>
+                        <div class="collapse show" id="user-info">
+                            <div class="mt-4">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label class="fs12">Họ Và Tên</label>
+                                            <input type="text" class="form-control" placeholder="Please Enter">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label class="fs12">Số Điện Thoại</label>
+                                            <input type="text" class="form-control" placeholder="Please Enter">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label class="fs12">Email</label>
+                                            <input type="text" class="form-control" placeholder="Please Enter">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-main text-main">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-main-box mt-5 bg-white">
+                    <div class="p-2 account-information">
+                        <p class="semi-bold fs16 filter-accordion">
+                            Đổi mật khẩu
+                        </p>
+                        <div class="collapse show" id="user-password">
+                            <div class="mt-4">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            <label class="fs12">Mật Khẩu Hiện Tại</label>
+                                            <input type="text" class="form-control" placeholder="Mật khẩu hiện tại">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            <label class="fs12">Mật khẩu mới</label>
+                                            <input type="text" class="form-control" placeholder="Mật khẩu mới">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            <input type="text" class="form-control" placeholder="Nhập lại mật khẩu">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-main text-main">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,259 @@
+﻿
+@{
+    ViewBag.Title = "Hotel Detail";
+    Layout = "~/Views/Shared/List.cshtml";
+}
+}
+
+    <section class="main-content">
+        <div class="swiper-container swiper-slider-view">
+            <div class="swiper-wrapper">
+                <div class="view-swiper-bg">
+                    <img src="/Content/img/hotel-detail.jpg" alt="Slider" width="1920" height="600">
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+
+        </div>
+        <div class="container">
+            <div class="row" id="main-content">
+                <div class="col-sm-9" id="content">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Hotel</a></li>
+                        </ol>
+                    </nav>
+                    <div class="hotel-information">
+                        <div class="">
+                            <h3 class="color-main semi-bold">Khách sạn 5 sao tại Hà Nội</h3>
+                        </div>
+                        <div class="mt-2">
+                            <p class="fs14">Thưởng thức bữa ăn tại khách sạn 5 sao sang trọng và biểu tượng của Hà Nội, khách sạn Apricot ngọt ngào và thơm ngon với nhiều loại trà đang chờ bạn với mỗi bộ trà chiều. Cơ sở rất tự hào tôn vinh truyền thống lâu đời của uống trà buổi chiều. Đừng bỏ qua cơ hội để thưởng thức một lát bánh sô cô la nổi tiếng của cung điện! Quán cà phê hoàn toàn mới này được làm mới, với môi trường xung quanh sang trọng để thư giãn và chiêm ngưỡng cảnh quan.</p>
+                        </div>
+                    </div>
+                    <hr class="mt-5 mb-5">
+                    <div class="package-options">
+                        <div class="">
+                            <h3 class="text-main semi-bold">Lựa chọn ngày đi ngày về</h3>
+                        </div>
+                        <div class="options-area">
+                            <div class="p-4">
+                                <p class="fs16 text-black">Lựa chọn ngày đi ngày về</p>
+                                <div class="p-3">
+                                    <p class="text-light-grey mb-3">Lựa chọn ngày</p>
+                                    <form class="form-inline">
+                                        <label class="fs14 mr-3">Ngày đi</label>
+                                        <input type="ngaydi" class="form-control sc-datepicker">
+
+                                        <label class="fs14 ml-3 mr-3">Ngày về</label>
+                                        <input type="ngayve" class="form-control sc-datepicker">
+                                    </form>
+                                    <hr class="mt-3 mb-3">
+                                    <form class="form-row">
+                                        <div class="col-sm-6">
+                                            <label class="fs14 mr-3">Họ và tên :</label>
+                                            <input type="hovaten" class="form-control input-detail sc-text" placeholder="Họ và tên">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="fs14 mr-3">SĐT :</label>
+                                            <input type="sdt" class="form-control input-detail sc-text">
+                                        </div>
+                                    </form>
+                                    <form class="form-row mt-2">
+                                        <div class="col-sm-6">
+                                            <label class="fs14 mr-3">Email :</label>
+                                            <input type="email" class="form-control input-detail sc-text" placeholder="demo@gmail.com">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="fs14 mr-3">Địa chỉ :</label>
+                                            <input type="diachi" class="form-control input-detail sc-text">
+                                        </div>
+                                    </form>
+                                    <hr class="mt-3 mb-3">
+                                    <div class="package-payment-info">
+                                        <p class="text-light-grey mb-3">Tổng tiền : </p>
+                                        <div class="package-price-wrapper">
+                                            <div class="package-price-content-wrapper">
+                                                <div class="package-price-box col-sm-5">
+                                                    <div class="package-price-detail">
+                                                        <p class="package-price-total"><span class="j-totalPrice">200,000 vnđ</span></p>
+                                                        <div class="act_result__cost_detail act_result__cost_detail--inline j-cost_detail">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="package-price-btn-box col-sm-6">
+                                                    <button class="btn btn-buy">
+                                                        ĐẶT PHÒNG
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mt-5 mb-5">
+                    <div class="expect-area">
+                        <div class="">
+                            <h3 class="text-red fs26">Có những gì tạo Khách sạn ?</h3>
+                        </div>
+                        <div class="mt-2">
+                            <p class="fs14">
+                                Khám phá thành phố Hà Nội xinh đẹp trên xe đạp với tour du lịch xe đạp có hướng dẫn nửa ngày này. Chuyến tham
+                                quan bắt đầu với một chuyến đón từ khách sạn trong thành phố. Từ đó, bạn sẽ được tặng xe đạp và mũ bảo hiểm,
+                                sau đó bạn sẽ khám phá phần còn lại của thành phố bằng xe đạp. Lần đầu lên: Lăng chủ tịch Hồ Chí Minh, là nơi đặt
+                                thi hài Hồ Chí Minh.
+                            </p>
+                            <div class="mt-5 image-area">
+                                <img src="/Content/img/intro-2.png" class="full-width" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mt-5 mb-5">
+
+                </div>
+                <div class="col-sm-3" id="sidebar">
+                    <div class="sidebar-item accomodation-sidebar mt-5">
+                        <div class="sidebar-box sidebar__inner">
+                            <div class="p-4">
+                                <p class="fs22 text-main"> 200,000 vnđ/đêm</p>
+                                <p class="fs14 text-black">
+                                    <del> 350,000 vnđ/đêm</del>
+                                </p>
+                                <button class="btn btn-buy" data-role="bookNow">ĐẶT PHÒNG</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-5">
+            <div class="more-items pb-5">
+                <div class="">
+                    <h3 class="text-main semi-bold">Khách sạn tương tự</h3>
+                </div>
+                <div class="mt-2">
+                    <div class="position-relative full-width pt-5">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="soutchai-item">
+                                    <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                                        <a href="@Url.Action("Detail", "Hotel")">
+                                            <div class="soutchai-item-img">
+                                                <img src="/Content/img/Group 67.png" />
+                                                <div class="top-left">
+                                                    <i class="fas fa-map-marker-alt fs13"></i>
+                                                    <span class="t_white">Hà Nội</span>
+                                                </div>
+                                            </div>
+                                            <ul class="">
+                                                <li class="position-relative">
+                                                    <p class="title">Khách Sạn Hà Nội</p>
+                                                </li>
+                                                <li class="price pt-2">
+                                                    <p class="fs12 text-grey">
+                                                        <del>&#8365; 452,029 đ/Đ</del>
+                                                    </p>
+                                                    <p>
+                                                        <span class="latest_price color-main"><b>&#8365; 302,411 đ/Đêm</b></span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="soutchai-item">
+                                    <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                                        <a href="@Url.Action("Detail", "Hotel")">
+                                            <div class="soutchai-item-img">
+                                                <img src="/Content/img/Group 66.png" />
+                                                <div class="top-left">
+                                                    <i class="fas fa-map-marker-alt fs13"></i>
+                                                    <span class="t_white">Sài Gòn</span>
+                                                </div>
+                                            </div>
+                                            <ul class="">
+                                                <li class="position-relative">
+                                                    <p class="title">Khách Sạn Sài Gòn</p>
+                                                </li>
+                                                <li class="price pt-2">
+                                                    <p class="fs12 text-grey">
+                                                        <del>439,902 đ/Đêm</del>
+                                                    </p>
+                                                    <p>
+                                                        <span class="latest_price color-main"><b> 302,411 đ/Đêm</b></span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="soutchai-item">
+                                    <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                                        <a href="@Url.Action("Detail", "Hotel")">
+                                            <div class="soutchai-item-img">
+                                                <img src="/Content/img/Group 65.png" />
+                                                <div class="top-left">
+                                                    <i class="fas fa-map-marker-alt fs13"></i>
+                                                    <span class="t_white">Đà Lạt</span>
+                                                </div>
+                                            </div>
+                                            <ul class="">
+                                                <li class="position-relative">
+                                                    <p class="title">Khách Sạn Đà Lạt</p>
+                                                </li>
+                                                <li class="price pt-2">
+                                                    <p class="fs12 text-grey">
+                                                        <del>633,300 đ/Đêm</del>
+                                                    </p>
+                                                    <p>
+                                                        <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="soutchai-item">
+                                    <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                                        <a href="@Url.Action("Detail", "Hotel")">
+                                            <div class="soutchai-item-img">
+                                                <img src="/Content/img/Group 64.png" />
+                                                <div class="top-left">
+                                                    <i class="fas fa-map-marker-alt fs13"></i>
+                                                    <span class="t_white">Sapa</span>
+                                                </div>
+                                            </div>
+                                            <ul class="">
+                                                <li class="position-relative">
+                                                    <p class="title">Khác Sạn Sapa</p>
+                                                </li>
+                                                <li class="price pt-2">
+                                                    <p class="fs12 text-grey">
+                                                        <del>122,505 đ/Đêm</del>
+                                                    </p>
+                                                    <p>
+                                                        <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
