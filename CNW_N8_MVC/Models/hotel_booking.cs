@@ -6,7 +6,7 @@ namespace CNW_N8_MVC.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class hotel_bookings
+    public partial class hotel_booking
     {
         public int id { get; set; }
 
@@ -31,6 +31,8 @@ namespace CNW_N8_MVC.Models
 
         [Column(TypeName = "date")]
         public DateTime? to_date { get; set; }
+
+        public int? total_price { get; set; }
 
         public virtual hotel hotel { get; set; }
     }

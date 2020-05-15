@@ -1583,5 +1583,7 @@ input[type="text"].form-control, input[type="password"].form-control {
 /* End noUiSlider*/
 
 /* Hieu */
-
+.swiper-slide-bg{
+	width:100%
+}
 /* End Hieu */

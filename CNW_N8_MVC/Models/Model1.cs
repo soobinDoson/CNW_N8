@@ -8,14 +8,14 @@ namespace CNW_N8_MVC.Models
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model12")
+            : base("name=Model13")
         {
         }
 
-        public virtual DbSet<homestay_bookings> homestay_bookings { get; set; }
         public virtual DbSet<homestay> homestays { get; set; }
-        public virtual DbSet<hotel_bookings> hotel_bookings { get; set; }
+        public virtual DbSet<homestay_booking> homestay_booking { get; set; }
         public virtual DbSet<hotel> hotels { get; set; }
+        public virtual DbSet<hotel_booking> hotel_booking { get; set; }
         public virtual DbSet<location> locations { get; set; }
         public virtual DbSet<user> users { get; set; }
 
@@ -30,7 +30,7 @@ namespace CNW_N8_MVC.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<homestay>()
-                .HasMany(e => e.homestay_bookings)
+                .HasMany(e => e.homestay_booking)
                 .WithOptional(e => e.homestay)
                 .HasForeignKey(e => e.homestay_id);
 
@@ -43,7 +43,7 @@ namespace CNW_N8_MVC.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<hotel>()
-                .HasMany(e => e.hotel_bookings)
+                .HasMany(e => e.hotel_booking)
                 .WithOptional(e => e.hotel)
                 .HasForeignKey(e => e.hotel_id);
 

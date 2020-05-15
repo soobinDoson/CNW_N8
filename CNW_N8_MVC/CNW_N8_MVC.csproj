@@ -137,9 +137,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\homestay.cs" />
-    <Compile Include="Models\homestay_bookings.cs" />
+    <Compile Include="Models\homestay_booking.cs" />
     <Compile Include="Models\hotel.cs" />
-    <Compile Include="Models\hotel_bookings.cs" />
+    <Compile Include="Models\hotel_booking.cs" />
     <Compile Include="Models\location.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\user.cs" />

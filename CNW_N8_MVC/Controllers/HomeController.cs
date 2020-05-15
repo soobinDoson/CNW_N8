@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Dynamic;
 
 using CNW_N8_MVC.Models;
 
@@ -13,7 +14,10 @@ namespace CNW_N8_MVC.Controllers
         private Model1 context = new Model1();
         public ActionResult Index()
         {
-            var model = context.hotels.Where(x => x.id != 0).ToList();
+            dynamic model = new ExpandoObject();
+            model.hotels = context.hotels.Where(x => x.id != 0).ToList();
+            model.homestays = context.homestays.Where(x => x.id != 0).ToList();
+            model.locations = context.locations.Where(x => x.id != 0).ToList();
             return View(model);
         }
     }

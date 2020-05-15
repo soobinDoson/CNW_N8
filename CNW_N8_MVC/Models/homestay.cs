@@ -6,12 +6,13 @@ namespace CNW_N8_MVC.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("homestay")]
     public partial class homestay
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public homestay()
         {
-            homestay_bookings = new HashSet<homestay_bookings>();
+            homestay_booking = new HashSet<homestay_booking>();
         }
 
         public int id { get; set; }
@@ -20,10 +21,16 @@ namespace CNW_N8_MVC.Models
 
         [Required]
         [StringLength(100)]
-        public string hotel_name { get; set; }
+        public string homestay_name { get; set; }
 
         [StringLength(100)]
         public string image_url { get; set; }
+
+        [StringLength(100)]
+        public string detail_header_image_url { get; set; }
+
+        [StringLength(100)]
+        public string more_imformation_image_url { get; set; }
 
         [Column(TypeName = "text")]
         public string description { get; set; }
@@ -36,7 +43,7 @@ namespace CNW_N8_MVC.Models
         public int? sell_price { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<homestay_bookings> homestay_bookings { get; set; }
+        public virtual ICollection<homestay_booking> homestay_booking { get; set; }
 
         public virtual location location { get; set; }
     }
