@@ -1,4 +1,4 @@
-namespace CNW_N8_MVC.Models.Entities
+namespace CNW_N8_MVC.Models
 {
     using System;
     using System.Data.Entity;
@@ -8,7 +8,7 @@ namespace CNW_N8_MVC.Models.Entities
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model1")
+            : base("name=Model12")
         {
         }
 

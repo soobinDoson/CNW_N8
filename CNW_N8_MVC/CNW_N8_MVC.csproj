@@ -136,7 +136,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Model1.cs" />
+    <Compile Include="Models\homestay.cs" />
+    <Compile Include="Models\homestay_bookings.cs" />
+    <Compile Include="Models\hotel.cs" />
+    <Compile Include="Models\hotel_bookings.cs" />
+    <Compile Include="Models\location.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

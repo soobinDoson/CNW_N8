@@ -1,4 +1,4 @@
-namespace CNW_N8_MVC.Models.Entities
+namespace CNW_N8_MVC.Models
 {
     using System;
     using System.Collections.Generic;
