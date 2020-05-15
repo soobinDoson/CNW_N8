@@ -100,7 +100,7 @@
                                 <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
                                     <a href="@Url.Action("Detail", "Hotel")">
                                         <div class="soutchai-item-img">
-                                            <img src="/Content/img/Group 67.png" />
+                                            <img src="@it.image_url" />
                                             <div class="top-left">
                                                 <i class="fas fa-map-marker-alt fs13"></i>
                                                 <span class="t_white">Hà Nội</span>
@@ -112,10 +112,10 @@
                                             </li>
                                             <li class="price pt-2">
                                                 <p class="fs12 text-grey">
-                                                    <del>&#8365; 452,029 đ/Đ</del>
+                                                    <del>@it.price VNĐ</del>
                                                 </p>
                                                 <p>
-                                                    <span class="latest_price color-main"><b>&#8365; 302,411 đ/Đêm</b></span>
+                                                    <span class="latest_price color-main"><b>@it.sell_price đ/Đêm</b></span>
                                                 </p>
                                             </li>
                                         </ul>
@@ -124,138 +124,6 @@
                             </div>
                         </div>
                     }
-                </div>
-                <div class="text-center">
-                    <a href="@Url.Action("List", "Hotel")">
-                        <div class="more-destination d-inline-block align-items-center">
-                            <i class="fas fa-map-marker-alt fs20 d-inline-block"></i>
-                            <span class="d-inline-block">Xem tất cả Hotel</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="featured-ticket home-section">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="fs32">Khách Sạn</h2>
-                <h3 class="fs16">Khách Sạn Được Khuyên Bởi Đa Số Người Dùng</h3>
-            </div>
-            <div class="position-relative full-width pt-5">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="soutchai-item">
-                            <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
-                                <a href="@Url.Action("Detail", "Hotel")">
-                                    <div class="soutchai-item-img">
-                                        <img src="/Content/img/Group 67.png" />
-                                        <div class="top-left">
-                                            <i class="fas fa-map-marker-alt fs13"></i>
-                                            <span class="t_white">Hà Nội</span>
-                                        </div>
-                                    </div>
-                                    <ul class="">
-                                        <li class="position-relative">
-                                            <p class="title">Khách Sạn Hà Nội</p>
-                                        </li>
-                                        <li class="price pt-2">
-                                            <p class="fs12 text-grey">
-                                                <del>&#8365; 452,029 đ/Đ</del>
-                                            </p>
-                                            <p>
-                                                <span class="latest_price color-main"><b>&#8365; 302,411 đ/Đêm</b></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="soutchai-item">
-                            <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
-                                <a href="@Url.Action("Detail", "Hotel")">
-                                    <div class="soutchai-item-img">
-                                        <img src="/Content/img/Group 66.png" />
-                                        <div class="top-left">
-                                            <i class="fas fa-map-marker-alt fs13"></i>
-                                            <span class="t_white">Sài Gòn</span>
-                                        </div>
-                                    </div>
-                                    <ul class="">
-                                        <li class="position-relative">
-                                            <p class="title">Khách Sạn Sài Gòn</p>
-                                        </li>
-                                        <li class="price pt-2">
-                                            <p class="fs12 text-grey">
-                                                <del>439,902 đ/Đêm</del>
-                                            </p>
-                                            <p>
-                                                <span class="latest_price color-main"><b> 302,411 đ/Đêm</b></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="soutchai-item">
-                            <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
-                                <a href="@Url.Action("Detail", "Hotel")">
-                                    <div class="soutchai-item-img">
-                                        <img src="/Content/img/Group 65.png" />
-                                        <div class="top-left">
-                                            <i class="fas fa-map-marker-alt fs13"></i>
-                                            <span class="t_white">Đà Lạt</span>
-                                        </div>
-                                    </div>
-                                    <ul class="">
-                                        <li class="position-relative">
-                                            <p class="title">Khách Sạn Đà Lạt</p>
-                                        </li>
-                                        <li class="price pt-2">
-                                            <p class="fs12 text-grey">
-                                                <del>633,300 đ/Đêm</del>
-                                            </p>
-                                            <p>
-                                                <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="soutchai-item">
-                            <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
-                                <a href="@Url.Action("Detail", "Hotel")">
-                                    <div class="soutchai-item-img">
-                                        <img src="/Content/img/Group 64.png" />
-                                        <div class="top-left">
-                                            <i class="fas fa-map-marker-alt fs13"></i>
-                                            <span class="t_white">Sapa</span>
-                                        </div>
-                                    </div>
-                                    <ul class="">
-                                        <li class="position-relative">
-                                            <p class="title">Khác Sạn Sapa</p>
-                                        </li>
-                                        <li class="price pt-2">
-                                            <p class="fs12 text-grey">
-                                                <del>122,505 đ/Đêm</del>
-                                            </p>
-                                            <p>
-                                                <span class="latest_price color-main"><b>302,411 đ/Đêm</b></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="text-center">
                     <a href="@Url.Action("List", "Hotel")">
