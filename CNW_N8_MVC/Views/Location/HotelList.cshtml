@@ -10,6 +10,8 @@
 @{ string location_Name = ViewData["location_Name"] as String;}
 @{ string txtSearch = ViewData["txtSearch"] as String;}
 @{ IEnumerable<CNW_N8_MVC.Models.location> optionList = ViewData["optionList"] as IEnumerable<CNW_N8_MVC.Models.location>;}
+@{ string minPrice = ViewData["minPrice"] as String;}
+@{ string maxPrice = ViewData["maxPrice"] as String;} 
 @model IPagedList<CNW_N8_MVC.Models.hotel>
 
 
@@ -22,7 +24,7 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Thay đổi địa điểm
                     </a>
-                    <form method="get" action="/Location/OptionChange">
+                    <form method="get" action="/Location/OptionChangeHotel">
                         <select name="select">
                             @foreach (var it in optionList)
                             {
@@ -78,7 +80,7 @@
             <div class="accommodation-filter mt-4 position-relative">
                 <div class="row">
                     <div class="col-sm-3">
-                        <form method="get" action="/Location/SearchEngine">
+                        <form method="get" action="/Location/SearchEngineHotel">
                             <div class="form-row">
                                 <div class="form-group col-sm-12">
                                     <input name="txtSearch" type="text" class="form-control sc-input" placeholder="Search filered results" value="@txtSearch">
@@ -112,7 +114,7 @@
                                         <div class="form-group">
                                             <div class="filter-price mt-3">
                                                 <p class="text-red fs14">Price range</p>
-                                                <p class="fs12 ml-2">0đ - 1,000,000đ</p>
+                                                <p class="fs12 ml-2">@minPrice đ - @maxPrice đ</p>
                                                 <div class="slidecontainer">
                                                     <input class="slider" id="slider" width="10%" />
                                                     <p class="fs13">Giá tiền:  <span id="value"></span>đ</p>

@@ -25,10 +25,16 @@ namespace CNW_N8_MVC.Controllers
 
             var optionList = context.locations.ToList();
             ViewData["optionList"] = optionList;
+
+            var minPrice = context.hotels.Min(h => h.sell_price);
+            var maxPrice = context.hotels.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
             return View(model);
         }
         [HttpGet]
-        public ActionResult OptionChange(int? page)
+        public ActionResult OptionChangeHotel(int? page)
         {
             var valueSelect = Request["select"];
             ViewData["location_Name"] = valueSelect;
@@ -38,10 +44,15 @@ namespace CNW_N8_MVC.Controllers
             var optionList = context.locations.ToList();
             ViewData["optionList"] = optionList;
 
+            var minPrice = model.Min(h => h.sell_price);
+            var maxPrice = model.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
             return View("HotelList",model);
         }
         [HttpGet]
-        public ActionResult SearchEngine(int? page)
+        public ActionResult SearchEngineHotel(int? page)
         {
             var txtSearch = Request["txtSearch"];
             ViewData["txtSearch"] = txtSearch;
@@ -51,11 +62,64 @@ namespace CNW_N8_MVC.Controllers
             var optionList = context.locations.ToList();
             ViewData["optionList"] = optionList;
 
+            var minPrice = model.Min(h => h.sell_price);
+            var maxPrice = model.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
             return View("HotelList",model);
         }
-        public ActionResult HomestayList()
+        public ActionResult HomestayList(int? page)
         {
-            return View();
+            var model = context.homestays.OrderByDescending(m => m.id).ToPagedList(page ?? 1, 9);
+            var list = context.homestays.ToList();
+            ViewData["count"] = list.Count.ToString();
+
+            var optionList = context.locations.ToList();
+            ViewData["optionList"] = optionList;
+
+            var minPrice = context.hotels.Min(h => h.sell_price);
+            var maxPrice = context.hotels.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
+            return View(model);
+        }
+        [HttpGet]
+        public ActionResult OptionChangeHomestay(int? page)
+        {
+            var valueSelect = Request["select"];
+            ViewData["location_Name"] = valueSelect;
+
+            var model = context.homestays.OrderByDescending(m => m.id).Where(h => h.location.location_name == valueSelect).ToPagedList(page ?? 1, 9);
+            ViewData["count"] = model.Count.ToString();
+            var optionList = context.locations.ToList();
+            ViewData["optionList"] = optionList;
+
+            var minPrice = model.Min(h => h.sell_price);
+            var maxPrice = model.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
+            return View("HomestayList", model);
+        }
+        [HttpGet]
+        public ActionResult SearchEngineHomestay(int? page)
+        {
+            var txtSearch = Request["txtSearch"];
+            ViewData["txtSearch"] = txtSearch;
+
+            var model = context.homestays.OrderByDescending(m => m.id).Where(h => h.homestay_name.Contains(txtSearch)).ToPagedList(page ?? 1, 9);
+            ViewData["count"] = model.Count.ToString();
+            var optionList = context.locations.ToList();
+            ViewData["optionList"] = optionList;
+
+            var minPrice = model.Min(h => h.sell_price);
+            var maxPrice = model.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
+            return View("HomestayList", model);
         }
     }
 }
