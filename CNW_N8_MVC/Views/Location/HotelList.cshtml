@@ -25,7 +25,7 @@
                         Thay đổi địa điểm
                     </a>
                     <form method="get" action="/Location/OptionChangeHotel">
-                        <select name="select">
+                        <select style="background:#ffd800; border-radius:15px;" name="select">
                             @foreach (var it in optionList)
                             {
                                 if (location_Name == it.location_name)
@@ -39,7 +39,7 @@
 
                             }
                         </select>
-                        <input type="submit" name="" value="Chọn" />
+                        <input style="background:red; border-radius:15px; border-color:black" type="submit" name="" value="Chọn" />
                     </form>
                     <div class="dropdown-menu dropdown-menu-center">
 
@@ -81,11 +81,13 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <form method="get" action="/Location/SearchEngineHotel">
-                            <div class="form-row">
-                                <div class="form-group col-sm-12">
-                                    <input name="txtSearch" type="text" class="form-control sc-input" placeholder="Search filered results" value="@txtSearch">
-                                    <input type="submit" name="name" value="Search" />
+                            <div  class="form-row">
+                                <div style="display:flex" class="form-group col-sm-12">
+                                    <input style="width:70%; border-radius:20px" name="txtSearch" type="text" class="form-control sc-input" placeholder="Search filered results" value="@txtSearch">
+                                    <input style="width:30%; font-size:13px; border-radius:20px; border-color:black" type="submit" name="name" value="Search" />
+
                                 </div>
+                               
 
                             </div>
 
@@ -162,7 +164,7 @@
 
                         <div class="sc-pagination pb-5">
                             <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
+                                <ul  class="pagination justify-content-center">
                                     @*<li class="page-item"><a class="page-link" href="#">1</a></li>
                                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>*@
