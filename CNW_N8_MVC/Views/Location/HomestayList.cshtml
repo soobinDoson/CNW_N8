@@ -8,12 +8,12 @@
 @using PagedList;
 @using PagedList.Mvc;
 @{ string count = ViewData["count"] as String;}
-@{ string location_Name = ViewData["location_Name"] as String;}
+@{ string location_Name = ViewData["locationName"] as String;}
 @{ string txtSearch = ViewData["txtSearch"] as String;}
 @{ IEnumerable<CNW_N8_MVC.Models.location> optionList = ViewData["optionList"] as IEnumerable<CNW_N8_MVC.Models.location>;}
 @{ string minPrice = ViewData["minPrice"] as String;}
 @{ string maxPrice = ViewData["maxPrice"] as String;}
-@model IPagedList<CNW_N8_MVC.Models.homestay>
+@model IEnumerable<CNW_N8_MVC.Models.homestay>
 
 <section class="main-content bg-white">
     <div class="reason-top">
@@ -23,23 +23,7 @@
                     <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Thay đổi địa điểm
                     </a>
-                    <form method="get" action="/Location/OptionChangeHomestay">
-                        <select style="background:#ffd800; border-radius:15px;" name="select">
-                            @foreach (var it in optionList)
-                            {
-                                if (location_Name == it.location_name)
-                                {
-                                    <option selected="selected">@it.location_name</option>
-                                }
-                                else
-                                {
-                                    <option>@it.location_name</option>
-                                }
-
-                            }
-                        </select>
-                        <input style="background:red; border-radius:15px; border-color:black" type="submit" name="" value="Chọn" />
-                    </form>
+                    
                     <div class="dropdown-menu dropdown-menu-center">
 
                     </div>
@@ -52,7 +36,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="categories-item">
-                            <a href="@Url.Action("HotelList", "Location")">
+                            <a href="@Url.Action("HotelList", "Location", new { @locationName = location_Name})">
                                 <div class="categories-item-img">
                                     <img src="/Content/img/hotel-1.png" />
                                 </div>
@@ -62,7 +46,7 @@
                     </div>
                     <div class="col">
                         <div class="categories-item selected-categories">
-                            <a href="@Url.Action("HomestayList", "Location")">
+                            <a href="@Url.Action("HomestayList", "Location", new { @locationName = location_Name}))">
                                 <div class="categories-item-img">
                                     <img src="/Content/img/chalet.png" />
                                 </div>
@@ -82,8 +66,7 @@
                         <form method="get" action="/Location/SearchEngineHomestay">
                             <div class="form-row">
                                 <div style="display:flex" class="form-group col-sm-12">
-                                    <input style="width:70%; border-radius:20px" name="txtSearch" type="text" class="form-control sc-input" placeholder="Search filered results" value="@txtSearch">
-                                    <input style="width:30%; font-size:13px; border-radius:20px; border-color:black" type="submit" name="name" value="Search" />
+                                    
                                 </div>
                             </div>
                         </form>
@@ -162,7 +145,7 @@
                                     @*<li class="page-item"><a class="page-link" href="#">1</a></li>
                                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>*@
-                                    @Html.PagedListPager(Model, pageNumber => Url.Action("HomestayList", new { page = pageNumber }))
+                                  @*  @Html.PagedListPager(Model, pageNumber => Url.Action("HomestayList", new { page = pageNumber })) *@
 
                                 </ul>
                             </nav>

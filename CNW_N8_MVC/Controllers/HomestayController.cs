@@ -14,6 +14,7 @@ namespace CNW_N8_MVC.Controllers
     {
         Model1 context = new Model1();
         // GET: Homestay
+        IPagedList<homestay> model;
         public ActionResult Index()
         {
             return View();
@@ -21,39 +22,57 @@ namespace CNW_N8_MVC.Controllers
 
         public ActionResult List(int? page)
         {
-            var model = context.homestays.OrderByDescending(m => m.id).ToPagedList(page ?? 1, 9);
-            var list = context.homestays.ToList();
-            var optionList = context.homestays.ToList();
-            ViewData["count"] = list.Count.ToString();
+            var optionList = context.locations.Where(o => o.id != null).ToList();
             ViewData["optionList"] = optionList;
+
+            var model = context.homestays.OrderByDescending(h => h.id).ToPagedList(page ?? 1, 9);
+            ViewData["count"] = model.Count.ToString();
+
+            var minPrice = context.homestays.Min(h => h.sell_price);
+            var maxPrice = context.homestays.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult OptionChange(int? page)
-        {
-            var valueSelect = Request["select"];
-            ViewData["homestays_Name"] = valueSelect;
-
-            var model = context.homestays.OrderByDescending(m => m.id).Where(h =>h.homestay_name == valueSelect).ToPagedList(page ?? 1, 9);
-            ViewData["count"] = model.Count.ToString();
-            var optionList = context.locations.ToList();
-            ViewData["optionList"] = optionList;
-
-            return View("HomestayList", model);
-        }
+        
+        
         [HttpGet]
         public ActionResult SearchEngine(int? page)
         {
+            var priceRange = Request["priceRange"];
+            var locationSelect = Request["locationSelect"];
             var txtSearch = Request["txtSearch"];
-            ViewData["txtSearch"] = txtSearch;
 
-            var model = context.homestays.OrderByDescending(m => m.id).Where(h => h.homestay_name.Contains(txtSearch)).ToPagedList(page ?? 1, 9);
-            ViewData["count"] = model.Count.ToString();
-            var optionList = context.homestays.ToList();
+            var optionList = context.locations.Where(o => o.id != null).ToList();
             ViewData["optionList"] = optionList;
+            if (priceRange == "Dưới 300.000VNĐ")
+            {
+                model = context.homestays.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.price < 300000) && h.homestay_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
 
-            return View("HomestayList", model);
+            }
+            if (priceRange == "300.000- 500.000VNĐ")
+            {
+
+                model = context.homestays.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.price >= 300000 && h.price < 500000) && h.homestay_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
+            }
+            if (priceRange == "500.000- 1.000.000VNĐ")
+            {
+
+                model = context.homestays.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.price >= 500000 && h.price < 1000000) && h.homestay_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
+            }
+            var minPrice = model.Min(h => h.sell_price);
+            var maxPrice = model.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+            ViewData["count"] = model.Count.ToString();
+            ViewData["priceRange"] = priceRange.ToString();
+            ViewData["locationSelect"] = locationSelect.ToString();
+            ViewData["txtSearch"] = txtSearch.ToString();
+
+
+            return View("List", model);
         }
         public ActionResult Detail(int id)
         {
