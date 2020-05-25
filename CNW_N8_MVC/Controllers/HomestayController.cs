@@ -55,10 +55,11 @@ namespace CNW_N8_MVC.Controllers
 
             return View("HomestayList", model);
         }
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
             dynamic model = new ExpandoObject();
             model.homestays = context.homestays.Where(x => x.id != 0).ToList();
+            model.homestay = context.homestays.Where(x => x.id == id).FirstOrDefault();
             return View(model);
         }
     }

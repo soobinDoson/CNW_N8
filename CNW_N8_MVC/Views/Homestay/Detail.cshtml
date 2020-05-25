@@ -11,7 +11,7 @@
     <div class="swiper-container swiper-slider-view">
         <div class="swiper-slide">
             <div class="view-swiper-bg">
-                <img src="/Content/img/homestay-detail.jpg" alt="Slider" width="1920" height="350">
+                <img src="@Model.homestay.detail_header_image_url" alt="Slider" width="1920" height="350">
             </div>
         </div>
         <!-- Add Pagination -->
@@ -29,11 +29,11 @@
                 </nav>
                 <div class="hotel-information">
                     <div class="">
-                        <h3 class="color-main semi-bold">HomeStay tại trung tâm Hà Nội</h3>
+                        <h3 class="color-main semi-bold">@Model.homestay.homestay_name</h3>
 
                     </div>
                     <div class="mt-2">
-                        <p class="fs14">Thưởng thức bữa ăn tại khách sạn 5 sao sang trọng và biểu tượng của Hà Nộii, Homestay ngọt ngào và thơm ngon với nhiều loại trà đang chờ bạn với mỗi bộ trà chiều. Cơ sở rất tự hào tôn vinh truyền thống lâu đời của uống trà buổi chiều. Đừng bỏ qua cơ hội để thưởng thức một lát bánh sô cô la nổi tiếng của cung điện! Quán cà phê hoàn toàn mới này được làm mới, với môi trường xung quanh sang trọng để thư giãn và chiêm ngưỡng cảnh quan</p>
+                        <p class="fs14">@Model.homestay.description</p>
                     </div>
                 </div>
                 <hr class="mt-5 mb-5">
@@ -42,18 +42,26 @@
                         <h3 class="text-main semi-bold">Lựa chọn ngày đi ngày về</h3>
                     </div>
                     <div class="options-area">
-                        <div class="p-4">
-                            <p class="text-light-grey mb-3">Lựa chọn ngày</p>
-                            <form class="form-inline">
-                                <label class="fs14 mr-3">Ngày đi</label>
-                                <input type="ngaydi" class="form-control sc-datepicker">
-
-                                <label class="fs14 ml-3 mr-3">Ngày về</label>
-                                <input type="ngayve" class="form-control sc-datepicker">
-                            </form>
-                            <hr class="mt-3 mb-3">
+                        <form>
+                            <p class="fs16 text-black">Lựa chọn ngày đi ngày về</p>
                             <div class="p-3">
-                                <form class="form-row">
+                                <p class="text-light-grey mb-3">Lựa chọn ngày</p>
+                                <div class="form-inline">
+                                    <div class="date-picker-booking form-group mr-3">
+                                        <p class="fs14 text-left mr-3">Check In</p>
+                                        <div class="input-with-message">
+                                            <input type="text" class="form-control sc-datepicker check-in" name="check_in">
+                                        </div>
+                                    </div>
+                                    <div class="date-picker-booking form-group">
+                                        <p class="fs14 text-left mr-3">Check Out</p>
+                                        <div class="input-with-message">
+                                            <input type="text" class="form-control sc-datepicker check-out" name="check_out">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="mt-3 mb-3">
+                                <div class="row">
                                     <div class="col-sm-6">
                                         <label class="fs14 mr-3">Họ và tên :</label>
                                         <input type="hovaten" class="form-control input-detail sc-text" placeholder="Họ và tên">
@@ -62,8 +70,8 @@
                                         <label class="fs14 mr-3">SĐT :</label>
                                         <input type="sdt" class="form-control input-detail sc-text">
                                     </div>
-                                </form>
-                                <form class="form-row mt-2">
+                                </div>
+                                <div class="row mt-2">
                                     <div class="col-sm-6">
                                         <label class="fs14 mr-3">Email :</label>
                                         <input type="email" class="form-control input-detail sc-text" placeholder="demo@gmail.com">
@@ -72,7 +80,7 @@
                                         <label class="fs14 mr-3">Địa chỉ :</label>
                                         <input type="diachi" class="form-control input-detail sc-text">
                                     </div>
-                                </form>
+                                </div>
                                 <hr class="mt-3 mb-3">
                                 <div class="package-payment-info">
                                     <p class="text-light-grey mb-3">Tổng tiền : </p>
@@ -80,23 +88,21 @@
                                         <div class="package-price-content-wrapper">
                                             <div class="package-price-box col-sm-5">
                                                 <div class="package-price-detail">
-                                                    <p class="package-price-total"><span class="j-totalPrice">500,000 vnđ</span></p>
+                                                    <p class="package-price-total"><span class="j-totalPrice">@Model.homestay.sell_price vnđ</span></p>
                                                     <div class="act_result__cost_detail act_result__cost_detail--inline j-cost_detail">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="package-price-btn-box col-sm-6">
-                                                <div class="act_result_message j-act_result_message" style="display: none;">
-                                                </div>
-                                                <button class="btn btn-buy" data-role="bookNow">
-                                                    ĐẶT HOMESTAY
+                                                <button class="btn btn-buy">
+                                                    ĐẶT PHÒNG
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <hr class="mt-5 mb-5">
@@ -105,9 +111,9 @@
                         <h3 class="text-red fs26">Có những gì tại HomeStay?</h3>
                     </div>
                     <div class="mt-2">
-                        <p class="fs14">Homestay là loại hình “du lịch xanh” lý tưởng dành cho các bạn trẻ khám phá đời sống, con người ở các vùng đất mới. Nói một cách dễ hiểu hơn, khi chọn du lịch homestay bạn sẽ sinh sống ở nhà người dân thay vì các khách sạn, nhà nghỉ. Bạn sẽ được chào đón, sinh hoạt, tham gia vào các hoạt động với người dân như một thành viên trong gia đình. Tuy nhiên, khách cũng cần phải “nhập gia tuỳ tục”, tôn trọng các quy tắc, sự riêng tư của chủ nhà.</p>
+                        <p class="fs14">@Model.homestay.more_imformation</p>
                         <div class="mt-5 image-area">
-                            <img src="/Content/img/Group 66.png" class="full-width" alt="">
+                            <img src="@Model.homestay.more_imformation_image_url" class="full-width" alt="">
                         </div>
                     </div>
                 </div>
@@ -117,9 +123,9 @@
                 <div class="sidebar-item accomodation-sidebar mt-5">
                     <div class="sidebar-box sidebar__inner">
                         <div class="p-4">
-                            <p class="fs22 text-main"> 200,000 vnđ/đêm</p>
+                            <p class="fs22 text-main"> @Model.homestay.sell_price vnđ/đêm</p>
                             <p class="fs14 text-black">
-                                <del> 350,000 vnđ/đêm </del>
+                                <del> @Model.homestay.price vnđ/đêm </del>
                             </p>
                             <button class="btn btn-buy" data-role="bookNow">ĐẶT PHÒNG</button>
                         </div>
@@ -141,7 +147,7 @@
                             <div class="col-sm-3">
                                 <div class="soutchai-item">
                                     <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
-                                        <a href="@Url.Action("Detail", "Homestay")">
+                                        <a href="/Homestay/Detail/@it.id">
                                             <div class="soutchai-item-img">
                                                 <img src="@it.image_url" />
                                                 <div class="top-left">

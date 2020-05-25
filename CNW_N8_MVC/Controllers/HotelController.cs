@@ -23,9 +23,12 @@ namespace CNW_N8_MVC.Controllers
             model.hotels = context.hotels.Where(x => x.id != 0).ToList();
             return View(model);
         }
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
-            return View();
+            dynamic model = new ExpandoObject();
+            model.hotels = context.hotels.Where(x => x.id != 0).ToList();
+            model.hotel = context.hotels.Where(x => x.id == id).FirstOrDefault();
+            return View(model);
         }
     }
 }
