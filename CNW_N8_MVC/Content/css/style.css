@@ -39,6 +39,7 @@ a, a:hover {
     background-color: #fff !important;
     border-radius: 0;
     height: calc(1.5em + .75rem + 4px);
+    width: 100% !important;
 }
 
 .sc-input-group input {
@@ -54,6 +55,16 @@ a, a:hover {
     border-radius: 0;
 }
 
+.sc-input-v2 {
+    border-radius: 0;
+    padding: 6px 12px;
+}
+
+.sc-checkbox:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #EC3737 !important;
+    background-color: #EC3737 !important;
+}
 .gj-textbox-md {
     border: 1px solid #EC3737 !important;
     background-color: #fff !important;
