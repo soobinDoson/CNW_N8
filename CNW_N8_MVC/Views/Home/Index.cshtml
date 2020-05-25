@@ -19,8 +19,8 @@
                 {
                     <div class="col-sm-3">
                         <div class="destination-item">
-                            <a href="@Url.Action("HotelList", "Location")">
-                                <img src="@it.image_url" alt="">
+                            <a href="@Url.Action("OptionChangeHotel_index","Location", new { @locationName = @it.location_name })">
+                                <img  src="@it.image_url" alt="">
                                 <div class="centered text-white">@it.location_name</div>
                             </a>
                         </div>

@@ -51,6 +51,23 @@ namespace CNW_N8_MVC.Controllers
 
             return View("HotelList",model);
         }
+        public ActionResult OptionChangeHotel_index(string locationName ,int? page)
+        {
+            var valueSelect = locationName;
+            ViewData["location_Name"] = valueSelect;
+
+            var model = context.hotels.OrderByDescending(m => m.id).Where(h => h.location.location_name == valueSelect).ToPagedList(page ?? 1, 9);
+            ViewData["count"] = model.Count.ToString();
+            var optionList = context.locations.ToList();
+            ViewData["optionList"] = optionList;
+
+            var minPrice = model.Min(h => h.sell_price);
+            var maxPrice = model.Max(h => h.sell_price);
+            ViewData["minPrice"] = minPrice.ToString();
+            ViewData["maxPrice"] = maxPrice.ToString();
+
+            return View("HotelList", model);
+        }
         [HttpGet]
         public ActionResult SearchEngineHotel(int? page)
         {
