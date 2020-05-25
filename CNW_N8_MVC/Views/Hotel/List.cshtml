@@ -1,321 +1,276 @@
-﻿
+﻿@using CNW_N8_MVC.Models;
+@model dynamic
+
 @{
     ViewBag.Title = "Hotel List";
     Layout = "~/Views/Shared/List.cshtml";
 }
 
-    <section class="main-content bg-white">
-        <div class="reason-top">
-            <div class="reason-top-opacity">
-                <div class="container">
-                    <div class="reason-top-text">
-                        <p class="fs32 text-white text-capitalize">Hotel</p>
-                        <p class="fs12 text-white">Home > Hotel</p>
-                    </div>
+<section class="main-content bg-white">
+    <div class="reason-top">
+        <div class="reason-top-opacity">
+            <div class="container">
+                <div class="reason-top-text">
+                    <p class="fs32 text-white text-capitalize">Hotel</p>
+                    <p class="fs12 text-white">Home > Hotel</p>
                 </div>
             </div>
         </div>
-        </div>
-        <div class="container">
-            <div class="accommodation-header">
-                <div class="accommodation-filter mt-4 position-relative">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-sm-12">
-                                        <input type="text" class="form-control sc-input" placeholder="Search filered results">
-                                    </div>
+    </div>
+    <div class="container">
+        <div class="accommodation-header">
+            <div class="accommodation-filter mt-4 position-relative">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <input type="text" class="form-control sc-input" placeholder="Search filered results">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-5">
-                            <p class="fs20 mt-2">42 Hotel được tìm thấy</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group ml-5">
-                                <select name="" id="" class="selectpicker sc-input" data-live-search="true" title="Sort by:" data-width="100%" data-style="bg-white">
-                                    <option value="">Most popular</option>
-                                    <option value="">Price</option>
-                                    <option value="">Rate</option>
-                                </select>
                             </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-5">
+                        <p class="fs20 mt-2">42 Hotel được tìm thấy</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group ml-5">
+                            <select name="" id="" class="selectpicker sc-input" data-live-search="true" title="Sort by:" data-width="100%" data-style="bg-white">
+                                <option value="">Most popular</option>
+                                <option value="">Price</option>
+                                <option value="">Rate</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="sidebar">
-                                <form>
-                                    <div class="form-row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="filter-price mt-3">
-                                                    <p class="text-red fs14">Price range</p>
-                                                    <p class="fs12 ml-2">0đ - 1,000,000đ</p>
-                                                    <div class="slidecontainer">
-                                                        <input class="slider" id="slider" width="10%" />
-                                                        <p class="fs13">Giá tiền:  <span id="value"></span>đ</p>
-                                                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="sidebar">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="filter-price mt-3">
+                                                <p class="text-red fs14">Price range</p>
+                                                <p class="fs12 ml-2">0đ - 1,000,000đ</p>
+                                                <div class="slidecontainer">
+                                                    <input class="slider" id="slider" width="10%" />
+                                                    <p class="fs13">Giá tiền:  <span id="value"></span>đ</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="row pt-3 pb-3">
+                            @foreach (hotel it in Model.hotels)
+                            {
+                                <div class="col-sm-4">
+                                    <div class="soutchai-item block-item">
+                                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                                            <a href="@Url.Action("Detail", "Hotel")">
+                                                <div class="soutchai-item-img">
+                                                    <img src="@it.image_url" />
+                                                    <div class="top-left">
+                                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                                        <span class="t_white">Hà Nội</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="">
+                                                    <li class="position-relative">
+                                                        <p class="title">@it.hotel_name</p>
+                                                    </li>
+                                                    <li class="price pt-2">
+                                                        <p class="fs12 text-grey">
+                                                            <del>@it.price VNĐ</del>
+                                                        </p>
+                                                        <p>
+                                                            <span class="latest_price color-main"><b>@it.sell_price đ/Đêm</b></span>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="row pb-3">
+                            <div class="col-sm-4">
+                                <div class="soutchai-item block-item">
+                                    <a href="@Url.Action("Detail", "Hotel")">
+                                        <div class="soutchai-item-img">
+                                            <img src="/Content/img/Group 65.png" />
+                                            <div class="top-left">
+                                                <i class="fas fa-map-marker-alt fs13"></i>
+                                                <span class="t_white">Sa Pa</span>
+                                            </div>
+                                        </div>
+                                        <ul class="">
+                                            <li class="position-relative">
+                                                <p class="title">Hotel tại Sa Pa</p>
+                                            </li>
+                                            <li class="price pt-2">
+                                                <p class="fs12 text-grey">
+                                                    <del>3000000 đ/đêm</del>
+                                                </p>
+                                                <p>
+                                                    <span class="latest_price color-main"><b>2600000đ/đêm</b></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="soutchai-item block-item">
+                                    <a href="@Url.Action("Detail", "Hotel")">
+                                        <div class="soutchai-item-img">
+                                            <img src="/Content/img/Group 64.png" />
+                                            <div class="top-left">
+                                                <i class="fas fa-map-marker-alt fs13"></i>
+                                                <span class="t_white">Đà Nẵng</span>
+                                            </div>
+                                        </div>
+                                        <ul class="">
+                                            <li class="position-relative">
+                                                <p class="title">Hotel tại Đà Nẵng</p>
+                                            </li>
+                                            <li class="price pt-2">
+                                                <p class="fs12 text-grey">
+                                                    <del>3200000 đ/đêm</del>
+                                                </p>
+                                                <p>
+                                                    <span class="latest_price color-main"><b>2800000đ/đêm</b></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="soutchai-item block-item">
+                                    <a href="@Url.Action("Detail", "Hotel")">
+                                        <div class="soutchai-item-img">
+                                            <img src="/Content/img/Group 60.png" />
+                                            <div class="top-left">
+                                                <i class="fas fa-map-marker-alt fs13"></i>
+                                                <span class="t_white">Huế</span>
+                                            </div>
+                                        </div>
+                                        <ul class="">
+                                            <li class="position-relative">
+                                                <p class="title">Hotel Huế</p>
+                                            </li>
+                                            <li class="price pt-2">
+                                                <p class="fs12 text-grey">
+                                                    <del>1500000 đ/đêm</del>
+                                                </p>
+                                                <p>
+                                                    <span class="latest_price color-main"><b>1200000đ/đêm</b></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-9">
-                            <div class="row pt-3 pb-3">
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 66.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Hà Nội</span>
-                                                </div>
+                        <div class="row pb-3">
+                            <div class="col-sm-4">
+                                <div class="soutchai-item block-item">
+                                    <a href="@Url.Action("Detail", "Hotel")">
+                                        <div class="soutchai-item-img">
+                                            <img src="/Content/img/Group 61.png" />
+                                            <div class="top-left">
+                                                <i class="fas fa-map-marker-alt fs13"></i>
+                                                <span class="t_white">Thái Bình</span>
                                             </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel tại Hà Nội</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>2000000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>1700000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 67.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Sài Gòn</span>
-                                                </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel tại Sài Gòn</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>2300000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>1900000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 70.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Đà Lạt</span>
-                                                </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel tại Đà Lạt</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>2000000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>1600000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
+                                        </div>
+                                        <ul class="">
+                                            <li class="position-relative">
+                                                <p class="title">Hotel Thái Bình</p>
+                                            </li>
+                                            <li class="price pt-2">
+                                                <p class="fs12 text-grey">
+                                                    <del>3800000 đ/đêm</del>
+                                                </p>
+                                                <p>
+                                                    <span class="latest_price color-main"><b>3500000đ/đêm</b></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="row pb-3">
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 65.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Sa Pa</span>
-                                                </div>
+                            <div class="col-sm-4">
+                                <div class="soutchai-item block-item">
+                                    <a href="@Url.Action("Detail", "Hotel")">
+                                        <div class="soutchai-item-img">
+                                            <img src="/Content/img/Group 67.png" />
+                                            <div class="top-left">
+                                                <i class="fas fa-map-marker-alt fs13"></i>
+                                                <span class="t_white">Bắc Ninh</span>
                                             </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel tại Sa Pa</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>3000000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>2600000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 64.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Đà Nẵng</span>
-                                                </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel tại Đà Nẵng</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>3200000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>2800000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 60.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Huế</span>
-                                                </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel Huế</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>1500000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>1200000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
+                                        </div>
+                                        <ul class="">
+                                            <li class="position-relative">
+                                                <p class="title">Hotel tại Bắc Ninh</p>
+                                            </li>
+                                            <li class="price pt-2">
+                                                <p class="fs12 text-grey">
+                                                    <del>2100000 đ/đêm</del>
+                                                </p>
+                                                <p>
+                                                    <span class="latest_price color-main"><b>1700000đ/đêm</b></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="row pb-3">
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 61.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Thái Bình</span>
-                                                </div>
+                            <div class="col-sm-4">
+                                <div class="soutchai-item block-item">
+                                    <a href="@Url.Action("Detail", "Hotel")">
+                                        <div class="soutchai-item-img">
+                                            <img src="/Content/img/Group 70.png" />
+                                            <div class="top-left">
+                                                <i class="fas fa-map-marker-alt fs13"></i>
+                                                <span class="t_white">Hà Nội</span>
                                             </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel Thái Bình</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>3800000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>3500000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 67.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Bắc Ninh</span>
-                                                </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel tại Bắc Ninh</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>2100000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>1700000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Hotel")">
-                                            <div class="soutchai-item-img">
-                                                <img src="/Content/img/Group 70.png" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Hà Nội</span>
-                                                </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">Hotel Hà Nội</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>3500000 đ/đêm</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>3000000đ/đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
+                                        </div>
+                                        <ul class="">
+                                            <li class="position-relative">
+                                                <p class="title">Hotel Hà Nội</p>
+                                            </li>
+                                            <li class="price pt-2">
+                                                <p class="fs12 text-grey">
+                                                    <del>3500000 đ/đêm</del>
+                                                </p>
+                                                <p>
+                                                    <span class="latest_price color-main"><b>3000000đ/đêm</b></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="sc-pagination pb-5">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
+                        </div>
+                        <div class="sc-pagination pb-5">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
