@@ -111,7 +111,7 @@
                             {
                                 <div class="col-sm-4">
                                     <div class="soutchai-item block-item">
-                                        <a href="@Url.Action("Detail", "Homestay")">
+                                        <a href="@Url.Action("Detail", "Homestay", new { @id = it.id})">
                                             <div class="soutchai-item-img">
                                                 <img src="@it.image_url" />
                                                 <div class="top-left">
