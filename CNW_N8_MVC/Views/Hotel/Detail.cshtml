@@ -145,36 +145,46 @@
             <div class="mt-2">
                 <div class="position-relative full-width pt-5">
                     <div class="row">
+                        @{ int key1 = 0;}
                         @foreach (hotel it in Model.hotels)
                         {
-                            <div class="col-sm-3">
-                                <div class="soutchai-item">
-                                    <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
-                                        <a href="/Hotel/Detail/@it.id">
-                                            <div class="soutchai-item-img">
-                                                <img src="@it.image_url" />
-                                                <div class="top-left">
-                                                    <i class="fas fa-map-marker-alt fs13"></i>
-                                                    <span class="t_white">Hà Nội</span>
+                            key1 += 1;
+                            if (key1 > 4)
+                            {
+                                break;
+                            }
+                            else
+                            {
+
+                                <div class="col-sm-3">
+                                    <div class="soutchai-item">
+                                        <div class="m_justify_list m_radius_box act_card act_card_sm a_sd_move j_activity_item js-item block-item">
+                                            <a href="/Hotel/Detail/@it.id">
+                                                <div class="soutchai-item-img">
+                                                    <img src="@it.image_url" />
+                                                    <div class="top-left">
+                                                        <i class="fas fa-map-marker-alt fs13"></i>
+                                                        <span class="t_white">@it.location.location_name</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <ul class="">
-                                                <li class="position-relative">
-                                                    <p class="title">@it.hotel_name</p>
-                                                </li>
-                                                <li class="price pt-2">
-                                                    <p class="fs12 text-grey">
-                                                        <del>@it.price VNĐ</del>
-                                                    </p>
-                                                    <p>
-                                                        <span class="latest_price color-main"><b>@it.sell_price đ/Đêm</b></span>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </a>
+                                                <ul class="">
+                                                    <li class="position-relative">
+                                                        <p class="title">@it.hotel_name</p>
+                                                    </li>
+                                                    <li class="price pt-2">
+                                                        <p class="fs12 text-grey">
+                                                            <del>@it.price VNĐ</del>
+                                                        </p>
+                                                        <p>
+                                                            <span class="latest_price color-main"><b>@it.sell_price đ/Đêm</b></span>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
                         }
                     </div>
                 </div>
