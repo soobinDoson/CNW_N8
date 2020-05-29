@@ -13,6 +13,17 @@ namespace CNW_N8_MVC.Controllers
         {
             return View();
         }
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         public ActionResult Config()
         {
             return View();
