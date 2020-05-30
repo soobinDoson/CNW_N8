@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "LocationList";
 }
-
+@{ string username = ViewData["username"] as String;}
 <!doctype html>
 <html lang="en">
 <head>
@@ -82,12 +82,21 @@
         </div>
     </li>
     -->
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="@Url.Action("Login", "User")">Đăng Nhập</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="@Url.Action("Register", "User")">Đăng Ký</a>
-                    </li>
+                    @if (username == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="@Url.Action("Login", "User")">Đăng Nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="@Url.Action("Register", "User")">Đăng Ký</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="@Url.Action("Config", "User")">@username</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </nav>

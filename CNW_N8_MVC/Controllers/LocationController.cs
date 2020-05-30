@@ -13,12 +13,29 @@ namespace CNW_N8_MVC.Controllers
     {
         Model1 context = new Model1();
         // GET: Location
+        
+        
+
+        private void setUsername()
+        {
+            if (Session["Login"] == null)
+            {
+                ViewData["username"] = null;
+            }
+            else
+            {
+                ViewData["username"] = UserController.userName;
+            }
+        }
         public ActionResult Index()
         {
+            setUsername();
+            
             return View();
         }
         public ActionResult HotelList(string locationName, int? page)
         {
+            setUsername();
             ViewData["locationName"] = locationName;
             var model = context.hotels.OrderByDescending(m => m.id).Where(h => h.location.location_name == locationName).ToList();
             var list = context.hotels.ToList();
@@ -38,6 +55,7 @@ namespace CNW_N8_MVC.Controllers
         
         public ActionResult HomestayList(string locationName, int? page)
         {
+            setUsername();
             ViewData["locationName"] = locationName;
             var model = context.homestays.OrderByDescending(m => m.id).Where(h => h.location.location_name == locationName).ToList();
             var list = context.homestays.ToList();

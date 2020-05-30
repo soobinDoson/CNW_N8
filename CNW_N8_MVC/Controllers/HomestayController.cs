@@ -15,13 +15,26 @@ namespace CNW_N8_MVC.Controllers
         Model1 context = new Model1();
         // GET: Homestay
         IPagedList<homestay> model;
+        private void setUsername()
+        {
+            if (Session["Login"] == null)
+            {
+                ViewData["username"] = null;
+            }
+            else
+            {
+                ViewData["username"] = UserController.userName;
+            }
+        }
         public ActionResult Index()
         {
+            setUsername();
             return View();
         }
 
         public ActionResult List(int? page)
         {
+            setUsername();
             var optionList = context.locations.Where(o => o.id != null).ToList();
             ViewData["optionList"] = optionList;
 
@@ -41,6 +54,7 @@ namespace CNW_N8_MVC.Controllers
         [HttpGet]
         public ActionResult SearchEngine(int? page)
         {
+            setUsername();
             var priceRange = Request["priceRange"];
             var locationSelect = Request["locationSelect"];
             var txtSearch = Request["txtSearch"];
@@ -76,6 +90,7 @@ namespace CNW_N8_MVC.Controllers
         }
         public ActionResult Detail(int id)
         {
+            setUsername();
             dynamic model = new ExpandoObject();
             model.homestays = context.homestays.Where(x => x.id != 0).ToList();
             model.homestay = context.homestays.Where(x => x.id == id).FirstOrDefault();

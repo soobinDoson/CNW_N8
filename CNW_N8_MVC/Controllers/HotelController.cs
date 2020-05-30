@@ -14,13 +14,25 @@ namespace CNW_N8_MVC.Controllers
     {
         private Model1 context = new Model1();
         IPagedList<hotel> model;
-
+        private void setUsername()
+        {
+            if (Session["Login"] == null)
+            {
+                ViewData["username"] = null;
+            }
+            else
+            {
+                ViewData["username"] = UserController.userName;
+            }
+        }
         public ActionResult Index()
         {
+            setUsername();
             return View();
         }
         public ActionResult List(int? page)
         {
+            setUsername();
             var optionList = context.locations.Where(o => o.id != null).ToList();
             ViewData["optionList"] = optionList;
 
@@ -39,6 +51,7 @@ namespace CNW_N8_MVC.Controllers
         [HttpGet]
         public ActionResult SearchEngine(int? page)
         {
+            setUsername();
             var priceRange = Request["priceRange"];
             var locationSelect = Request["locationSelect"];
             var txtSearch = Request["txtSearch"];
@@ -74,6 +87,7 @@ namespace CNW_N8_MVC.Controllers
         }
         public ActionResult Detail(int id)
         {
+            setUsername();
             dynamic model = new ExpandoObject();
             model.hotels = context.hotels.Where(x => x.id != 0).ToList();
             model.hotel = context.hotels.Where(x => x.id == id).FirstOrDefault();
