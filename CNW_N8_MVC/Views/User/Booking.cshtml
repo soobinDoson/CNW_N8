@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/List.cshtml";
 }
 @{ string username = ViewData["username"] as String;}
+@using CNW_N8_MVC.Models;
+
+@model Cart
     <section class="main-content bg-grey">
         <div class="container">
             <div class="row no-gutters">
@@ -52,70 +55,41 @@
                                         <div class="clear-fix"></div>
                                     </div>
                                     <div id="list_bookings" class="accordion filter-accordion">
+                                        
+                                            
                                         <div class="panel" data-room-id="booking1">
-                                            <div class="row pt-3 pb-3 panel-row panel-border-grey">
-                                                <div class="col">Holiday Hotel</div>
-                                                <div class="col text-center">3</div>
-                                                <div class="col text-center">423,456đ</div>
-                                                <div class="clear-fix"></div>
-                                            </div>
+                                            @foreach (var it in Model.lines)
+                                            {
+                                                if (it.Product.Status_checking == "hotel")
+                                                {
+                                                    <div class="row pt-3 pb-3 panel-row panel-border-grey">
+                                                        <div class="col">@it.Product.Name</div>
+                                                        <div class="col text-center">@it.Quantity</div>
+                                                        <div class="col text-center">@((it.Quantity * int.Parse(it.Product.Sell_price.ToString())).ToString()) VNĐ</div>
+                                                        <div class="clear-fix"></div>
+                                                    </div>
+                                                }
+                                                if (it.Product.Status_checking == "homestay")
+                                                {
+                                                    <div class="row pt-3 pb-3 panel-row panel-border-grey">
+                                                        <div class="col">@it.Product.Name</div>
+                                                        <div class="col text-center">@it.Quantity</div>
+                                                        <div class="col text-center">@((it.Quantity * int.Parse(it.Product.Sell_price.ToString())).ToString()) VNĐ</div>
+                                                        <div class="clear-fix"></div>
+                                                    </div>
+                                                }
+
+                                            }
                                         </div>
-                                        <div class="panel" data-room-id="booking1">
-                                            <div class="row pt-3 pb-3 panel-row panel-border-grey">
-                                                <div class="col">Holiday Hotel</div>
-                                                <div class="col text-center">3</div>
-                                                <div class="col text-center">423,456đ</div>
-                                                <div class="clear-fix"></div>
-                                            </div>
-                                        </div>
-                                        <div class="panel" data-room-id="booking1">
-                                            <div class="row pt-3 pb-3 panel-row panel-border-grey">
-                                                <div class="col">Holiday Hotel</div>
-                                                <div class="col text-center">3</div>
-                                                <div class="col text-center">423,456đ</div>
-                                                <div class="clear-fix"></div>
-                                            </div>
-                                        </div>
-                                        <div class="panel" data-room-id="booking1">
-                                            <div class="row pt-3 pb-3 panel-row panel-border-grey">
-                                                <div class="col">Holiday Hotel</div>
-                                                <div class="col text-center">3</div>
-                                                <div class="col text-center">423,456đ</div>
-                                                <div class="clear-fix"></div>
-                                            </div>
-                                        </div>
-                                        <div class="panel" data-room-id="booking1">
-                                            <div class="row pt-3 pb-3 panel-row panel-border-grey">
-                                                <div class="col">Holiday Hotel</div>
-                                                <div class="col text-center">3</div>
-                                                <div class="col text-center">423,456đ</div>
-                                                <div class="clear-fix"></div>
-                                            </div>
-                                        </div>
-                                        <div class="panel" data-room-id="booking1">
-                                            <div class="row pt-3 pb-3 panel-row panel-border-grey">
-                                                <div class="col">Holiday Hotel</div>
-                                                <div class="col text-center">3</div>
-                                                <div class="col text-center">423,456đ</div>
-                                                <div class="clear-fix"></div>
-                                            </div>
-                                        </div>
+                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="mt-3">
-                        <div class="sc-pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

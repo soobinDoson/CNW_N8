@@ -91,7 +91,28 @@ namespace CNW_N8_MVC.Controllers
             dynamic model = new ExpandoObject();
             model.hotels = context.hotels.Where(x => x.id != 0).ToList();
             model.hotel = context.hotels.Where(x => x.id == id).FirstOrDefault();
+            ViewData["id"] = id.ToString();
             return View(model);
+        }
+        [HttpGet]
+        public ActionResult AddItemHotel(int id)
+        {
+            int quantity = int.Parse(Request["quantity"]);
+            var hotel = context.hotels.Find(id);
+            var cart = (Cart)Session["CartSession"];
+            if (cart != null)
+            {
+                cart.AddItemHotel(hotel, quantity);
+            }
+            else
+            {
+                cart = new Cart();
+                cart.AddItemHotel(hotel, quantity);
+                Session["CartSession"] = cart;
+            }
+
+            return RedirectToAction("Booking", "User");
+
         }
     }
 }

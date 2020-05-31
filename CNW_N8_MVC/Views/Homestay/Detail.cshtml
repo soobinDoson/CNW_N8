@@ -1,11 +1,25 @@
 ﻿@using CNW_N8_MVC.Models;
+@{ string id = ViewData["id"] as String;}
 @model dynamic
 
 @{
     ViewBag.Title = "Homestay Detail";
     Layout = "~/Views/Shared/List.cshtml";
 }
-}
+
+<link rel="stylesheet" href="/Content/datePicker/jquery-ui.css">
+
+<script src="/Content/datePicker/jquery-1.12.4.js"></script>
+<script src="/Content/datePicker/jquery-ui.js"></script>
+<script>
+    $(function () {
+
+
+        $("#MyDate1").datepicker({
+
+        });
+    });
+</script>
 
 <section class="main-content">
     <div class="swiper-container swiper-slider-view">
@@ -39,24 +53,24 @@
                 <hr class="mt-5 mb-5">
                 <div class="package-options">
                     <div class="">
-                        <h3 class="text-main semi-bold">Lựa chọn ngày đi ngày về</h3>
+                        <h3 class="text-main semi-bold">Lựa chọn ngày</h3>
                     </div>
                     <div class="options-area">
-                        <form>
-                            <p class="fs16 text-black">Lựa chọn ngày đi ngày về</p>
+                        <form method="get" action="/Homestay/AddItemHomestay/@id">
+                            <p class="fs16 text-black"></p>
                             <div class="p-3">
                                 <p class="text-light-grey mb-3">Lựa chọn ngày</p>
                                 <div class="form-inline">
                                     <div class="date-picker-booking form-group mr-3">
                                         <p class="fs14 text-left mr-3">Check In</p>
                                         <div class="input-with-message">
-                                            <input type="text" class="form-control sc-datepicker check-in" name="check_in">
+                                            <input type="text" id="MyDate1" class="form-control sc-datepicker check-in" name="check_in">
                                         </div>
                                     </div>
                                     <div class="date-picker-booking form-group">
-                                        <p class="fs14 text-left mr-3">Check Out</p>
+                                        <p class="fs14 text-left mr-3">Số Đêm</p>
                                         <div class="input-with-message">
-                                            <input type="text" class="form-control sc-datepicker check-out" name="check_out">
+                                            <input type="text" class="form-control sc-datepicker check-out" name="quantity">
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +97,7 @@
                                 </div>
                                 <hr class="mt-3 mb-3">
                                 <div class="package-payment-info">
-                                    <p class="text-light-grey mb-3">Tổng tiền : </p>
+                                    <p class="text-light-grey mb-3">Đơn Giá : </p>
                                     <div class="package-price-wrapper">
                                         <div class="package-price-content-wrapper">
                                             <div class="package-price-box col-sm-5">
@@ -94,7 +108,7 @@
                                                 </div>
                                             </div>
                                             <div class="package-price-btn-box col-sm-6">
-                                                <button class="btn btn-buy">
+                                                <button class="btn btn-buy" type="submit">
                                                     ĐẶT PHÒNG
                                                 </button>
                                             </div>

@@ -104,12 +104,21 @@ namespace CNW_N8_MVC.Controllers
 
         public ActionResult Booking()
         {
-            if(Session["Login"] == null)
+            Cart cart;
+            ViewData["username"] = userName;
+            if (Session["Login"] == null)
             {
                 return View("Login");
             }
-            ViewData["username"] = userName;
-            return View();
+            else
+            {
+                cart = (Cart)Session["CartSession"];
+                if(cart == null)
+                {
+                    cart = new Cart();
+                }
+                return View(cart);
+            }
         }
 
         [HttpGet]
@@ -160,5 +169,9 @@ namespace CNW_N8_MVC.Controllers
             }
             
         }
+
+        
+
+        
     }
 }

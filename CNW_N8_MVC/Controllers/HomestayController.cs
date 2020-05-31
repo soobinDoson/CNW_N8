@@ -94,7 +94,28 @@ namespace CNW_N8_MVC.Controllers
             dynamic model = new ExpandoObject();
             model.homestays = context.homestays.Where(x => x.id != 0).ToList();
             model.homestay = context.homestays.Where(x => x.id == id).FirstOrDefault();
+            ViewData["id"] = id.ToString();
             return View(model);
+        }
+        [HttpGet]
+        public ActionResult AddItemHomestay(int id)
+        {
+            int quantity = int.Parse(Request["quantity"]);
+            var homestay = context.homestays.Find(id);
+            var cart = (Cart)Session["CartSession"];
+            if (cart != null)
+            {
+                cart.AddItemHomestay(homestay, quantity);
+            }
+            else
+            {
+                cart = new Cart();
+                cart.AddItemHomestay(homestay, quantity);
+                Session["CartSession"] = cart;
+            }
+
+            return RedirectToAction("Booking", "User");
+
         }
     }
 }
