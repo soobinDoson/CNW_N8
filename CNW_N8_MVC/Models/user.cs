@@ -19,5 +19,21 @@ namespace CNW_N8_MVC.Models
         public string password { get; set; }
 
         public int role_id { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string email { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string address { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string full_name { get; set; }
     }
 }
