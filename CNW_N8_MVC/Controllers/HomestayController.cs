@@ -88,14 +88,21 @@ namespace CNW_N8_MVC.Controllers
 
             return View("List", model);
         }
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int? id)
         {
-            setUsername();
-            dynamic model = new ExpandoObject();
-            model.homestays = context.homestays.Where(x => x.id != 0).ToList();
-            model.homestay = context.homestays.Where(x => x.id == id).FirstOrDefault();
-            ViewData["id"] = id.ToString();
-            return View(model);
+            if(id.HasValue)
+            {
+                setUsername();
+                dynamic model = new ExpandoObject();
+                model.homestays = context.homestays.Where(x => x.id != 0).ToList();
+                model.homestay = context.homestays.Where(x => x.id == id).FirstOrDefault();
+                ViewData["id"] = id.ToString();
+                return View(model);
+            } else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
         [HttpGet]
         public ActionResult AddItemHomestay(int id)

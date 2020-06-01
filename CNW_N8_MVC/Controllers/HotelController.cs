@@ -85,15 +85,23 @@ namespace CNW_N8_MVC.Controllers
 
             return View("List",model);
         }
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int? id)
         {
-            setUsername();
+            if (id.HasValue)
+            {
+                setUsername();
             dynamic model = new ExpandoObject();
             model.hotels = context.hotels.Where(x => x.id != 0).ToList();
             model.hotel = context.hotels.Where(x => x.id == id).FirstOrDefault();
             ViewData["id"] = id.ToString();
             return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
+
         [HttpGet]
         public ActionResult AddItemHotel(int id)
         {
