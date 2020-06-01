@@ -72,6 +72,10 @@ namespace CNW_N8_MVC.Controllers
                     user newAcc = new user();
                     newAcc.username = acc.username;
                     newAcc.password = acc.password;
+                    newAcc.full_name = acc.full_name;
+                    newAcc.phone = acc.phone;
+                    newAcc.address = acc.address;
+                    newAcc.email = acc.email;
                     newAcc.role_id = 1;
                     context.users.Add(newAcc);
                     context.SaveChanges();

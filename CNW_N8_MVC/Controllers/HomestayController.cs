@@ -15,6 +15,7 @@ namespace CNW_N8_MVC.Controllers
         Model1 context = new Model1();
         // GET: Homestay
         IPagedList<homestay> model;
+        int quantity;
         private void setUsername()
         {
             if (Session["Login"] == null)
@@ -107,7 +108,20 @@ namespace CNW_N8_MVC.Controllers
         [HttpGet]
         public ActionResult AddItemHomestay(int id)
         {
-            int quantity = int.Parse(Request["quantity"]);
+          //  int quantity;
+            DateTime checkIn = Convert.ToDateTime(Request["check_in"]);
+            DateTime checkOut = Convert.ToDateTime(Request["check_out"]);
+            if(checkOut <= checkIn)
+            {
+                //Ngày đi lớn hơn ngày về//
+                return RedirectToAction("Detail", "Homestay", new { id = id });
+            }
+            else
+            {
+                TimeSpan t = checkOut - checkIn;
+                quantity = (int)t.TotalDays;
+            }
+     
             var homestay = context.homestays.Find(id);
             var cart = (Cart)Session["CartSession"];
             if (cart != null)

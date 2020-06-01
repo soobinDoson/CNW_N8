@@ -14,6 +14,7 @@ namespace CNW_N8_MVC.Controllers
     {
         private Model1 context = new Model1();
         IPagedList<hotel> model;
+        int quantity;
         private void setUsername()
         {
             if (Session["Login"] == null)
@@ -105,7 +106,19 @@ namespace CNW_N8_MVC.Controllers
         [HttpGet]
         public ActionResult AddItemHotel(int id)
         {
-            int quantity = int.Parse(Request["quantity"]);
+            DateTime checkIn = Convert.ToDateTime(Request["check_in"]);
+            DateTime checkOut = Convert.ToDateTime(Request["check_out"]);
+            if (checkOut <= checkIn)
+            {
+                //Ngày đi lớn hơn ngày về//
+                return RedirectToAction("Detail", "Hotel", new { id = id });
+            }
+            else
+            {
+                TimeSpan t = checkOut - checkIn;
+                quantity = (int)t.TotalDays;
+            }
+
             var hotel = context.hotels.Find(id);
             var cart = (Cart)Session["CartSession"];
             if (cart != null)
