@@ -44,9 +44,26 @@ namespace CNW_N8_MVC.Controllers
             }
             else
             {
+
                 return View("Login");
             }
             
+        }
+
+        public ActionResult checkMK()
+        {
+            var result = context.users.Where(a => (a.username == Request["user"] && a.password == Request["pass"])).FirstOrDefault();
+            string thongbao = "";
+            if (result != null)
+            {
+                thongbao = "Tai khoan dc di tiep";
+            }
+            else
+            {
+
+                thongbao = "Tai khoan ko dc di tiep";
+            }
+            return Json(new { thongbao });
         }
 
         public ActionResult Register()
@@ -161,6 +178,7 @@ namespace CNW_N8_MVC.Controllers
                     }
                     else
                     {
+
                         //Thông tin chưa chính xác
                         return RedirectToAction("Config", "User");
                     }
