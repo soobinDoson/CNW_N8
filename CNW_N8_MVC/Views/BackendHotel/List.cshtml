@@ -11,33 +11,25 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header"><i class="fa fa-align-justify"></i> Danh sách người dùng</div>
+            <div class="card-header"><i class="fa fa-align-justify"></i> Danh sách Hotel</div>
             <div class="card-body">
                 <table class="table table-responsive-sm">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Số điện thoại</th>
-                            <th>chức vụ</th>
+                            <th>Tên khách sạn</th>
+                            <th>Địa điểm</th>
+                            <th>Giá</th>
+                            <th>Giá khuyến mãi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (user it in Model.users)
+                        @foreach (hotel it in Model.hotels)
                         {
                             <tr>
-                                <td>@it.username</td>
-                                <td>@it.email</td>
-                                <td>@it.phone</td>
-                                @switch (@it.role_id)
-                                {
-                                    case 0:
-                                        <td>Admin</td>
-                                        break;
-                                    case 1:
-                                        <td>Khách hàng</td>
-                                        break;
-                                }
+                                <td>@it.hotel_name</td>
+                                <td>@it.location.location_name</td>
+                                <td>@it.price</td>
+                                <td>@it.sell_price</td>
                             </tr>
                         }
                     </tbody>

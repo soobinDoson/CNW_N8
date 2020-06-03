@@ -9,20 +9,15 @@ using CNW_N8_MVC.Models;
 
 namespace CNW_N8_MVC.Controllers.Backend
 {
-    public class BackendUserController : Controller
+    public class BackendHotelController : Controller
     {
         private Model1 context = new Model1();
-        // GET: User
+        // GET: BackendHotel
         public ActionResult List()
         {
             dynamic model = new ExpandoObject();
-            model.users = context.users.Where(x => x.id != 0).ToList();
+            model.hotels = context.hotels.Where(x => x.id != 0).ToList();
             return View(model);
-        }
-
-        public ActionResult Add()
-        {
-            return View();
         }
     }
 }
