@@ -26,6 +26,7 @@ namespace CNW_N8_MVC.Controllers
         public ActionResult Logout()
         {
             Session["Login"] = null;
+            Session["CartSession"] = null;
             idAccount = 0;
             userName = null;
             return RedirectToAction("Index", "Home");
@@ -42,28 +43,62 @@ namespace CNW_N8_MVC.Controllers
                 ViewData["username"] = result.username.ToString();
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
-
-                return View("Login");
-            }
+            return View();
             
         }
 
-        public ActionResult checkMK()
+        public int checkMK(string user, string pass)
         {
-            var result = context.users.Where(a => (a.username == Request["user"] && a.password == Request["pass"])).FirstOrDefault();
-            string thongbao = "";
+            var result = context.users.Where(a => (a.username == user && a.password == pass)).FirstOrDefault();
+            
             if (result != null)
             {
-                thongbao = "Tai khoan dc di tiep";
+                return 1;
             }
             else
             {
-
-                thongbao = "Tai khoan ko dc di tiep";
+                return 0;
             }
-            return Json(new { thongbao });
+        }
+        public int checkDangKy(string user, string pass)
+        {
+            if(user == "" || pass == "")
+            {
+                return -1;
+            }
+            else
+            {
+                var result = context.users.Where(a => a.username == user).FirstOrDefault();
+                if (result != null)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+        
+        public int checkNewPassword(string nowPassword, string newPassword, string NewPassword2)
+        {
+            
+            var result = context.users.Find(idAccount);
+            if(result.password == nowPassword && newPassword != "" && NewPassword2 != "")
+            {
+                if(newPassword == NewPassword2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         public ActionResult Register()
@@ -74,37 +109,18 @@ namespace CNW_N8_MVC.Controllers
         [HttpPost]
         public ActionResult RegisterCenter(user acc)
         {
-            var result = context.users.Where(a => (a.username == acc.username)).FirstOrDefault();
-            if(result != null)
-            {
-                //Tài Khoản bị trùng//
-                return View("Register");
+            user newAcc = new user();
+            newAcc.username = acc.username;
+            newAcc.password = acc.password;
+            newAcc.full_name = acc.full_name;
+            newAcc.phone = acc.phone;
+            newAcc.address = acc.address;
+            newAcc.email = acc.email;
+            newAcc.role_id = 1;
+            context.users.Add(newAcc);
+            context.SaveChanges();
+            return RedirectToAction("Login","User");
 
-            }
-            else
-            {
-                //Tài Khoản ko bị trùng//
-                try
-                {
-                    user newAcc = new user();
-                    newAcc.username = acc.username;
-                    newAcc.password = acc.password;
-                    newAcc.full_name = acc.full_name;
-                    newAcc.phone = acc.phone;
-                    newAcc.address = acc.address;
-                    newAcc.email = acc.email;
-                    newAcc.role_id = 1;
-                    context.users.Add(newAcc);
-                    context.SaveChanges();
-                    return View("Login");
-                }
-                catch
-                {
-                    return View();
-                }
-                
-            }
-            
         }
 
         public ActionResult Config()

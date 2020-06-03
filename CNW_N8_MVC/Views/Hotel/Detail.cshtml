@@ -67,14 +67,15 @@
                                     <div class="date-picker-booking form-group mr-3">
                                         <p class="fs14 text-left mr-3">Ngày đến</p>
                                         <div class="input-with-message">
-                                            <input type="date" class="form-control sc-datepicker check-in" name="check_in">
+                                            <input type="date" class="form-control sc-datepicker check-in" name="check_in" id="checkin">
                                         </div>
                                     </div>
                                     <div class="date-picker-booking form-group">
-                                        <p class="fs14 text-left mr-3">Ngày đi</p>
+                                        <p class="fs14 text-left mr-3">Ngày Về</p>
                                         <div class="input-with-message">
-                                            <input type="date" class="form-control sc-datepicker check-out" name="check_out">
+                                            <input type="date" class="form-control sc-datepicker check-out" name="check_out" id="checkout">
                                         </div>
+                                        <div style="color:red; font-size:20px; margin-left:10px" id="divThongBao"></div>
                                     </div>
                                 </div>
                                 <hr class="mt-3 mb-3">
@@ -111,7 +112,7 @@
                                                 </div>
                                             </div>
                                             <div class="package-price-btn-box col-sm-6">
-                                                <button class="btn btn-buy" type="submit" >
+                                                <button id="datphong" class="btn btn-buy" type="submit" >
                                                     ĐẶT PHÒNG
                                                 </button>
                                             </div>
@@ -210,3 +211,4 @@
     </div>
 </section>
 
+<script src="~/Scripts/js/DetailHotel.js"></script>

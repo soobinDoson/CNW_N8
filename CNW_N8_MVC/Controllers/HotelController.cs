@@ -106,33 +106,65 @@ namespace CNW_N8_MVC.Controllers
         [HttpGet]
         public ActionResult AddItemHotel(int id)
         {
-            DateTime checkIn = Convert.ToDateTime(Request["check_in"]);
-            DateTime checkOut = Convert.ToDateTime(Request["check_out"]);
-            if (checkOut <= checkIn)
+            if(Session["Login"] == null)
             {
-                //Ngày đi lớn hơn ngày về//
-                return RedirectToAction("Detail", "Hotel", new { id = id });
+                return RedirectToAction("Login", "User");
             }
             else
             {
-                TimeSpan t = checkOut - checkIn;
-                quantity = (int)t.TotalDays;
-            }
+                DateTime checkIn = Convert.ToDateTime(Request["check_in"]);
+                DateTime checkOut = Convert.ToDateTime(Request["check_out"]);
+                if (checkOut <= checkIn)
+                {
+                    //Ngày đi lớn hơn ngày về//
+                    return RedirectToAction("Detail", "Hotel", new { id = id });
+                }
+                else
+                {
+                    TimeSpan t = checkOut - checkIn;
+                    quantity = (int)t.TotalDays;
+                }
 
-            var hotel = context.hotels.Find(id);
-            var cart = (Cart)Session["CartSession"];
-            if (cart != null)
+                var hotel = context.hotels.Find(id);
+                var cart = (Cart)Session["CartSession"];
+                if (cart != null)
+                {
+                    cart.AddItemHotel(hotel, quantity);
+                }
+                else
+                {
+                    cart = new Cart();
+                    cart.AddItemHotel(hotel, quantity);
+                    Session["CartSession"] = cart;
+                }
+
+                return RedirectToAction("Booking", "User");
+            }
+            
+
+        }
+
+        public int checkDate(string checkin, string checkout)
+        {
+            if(checkin == "" || checkout == "")
             {
-                cart.AddItemHotel(hotel, quantity);
+                return -1;
             }
             else
             {
-                cart = new Cart();
-                cart.AddItemHotel(hotel, quantity);
-                Session["CartSession"] = cart;
-            }
+                DateTime checkIn = Convert.ToDateTime(checkin);
+                DateTime checkOut = Convert.ToDateTime(checkout);
 
-            return RedirectToAction("Booking", "User");
+                if(checkOut <= checkIn)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+
+            }
 
         }
     }

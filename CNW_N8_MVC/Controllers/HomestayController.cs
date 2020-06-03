@@ -138,5 +138,29 @@ namespace CNW_N8_MVC.Controllers
             return RedirectToAction("Booking", "User");
 
         }
+
+        public int checkDate(string checkin, string checkout)
+        {
+            if (checkin == "" || checkout == "")
+            {
+                return -1;
+            }
+            else
+            {
+                DateTime checkIn = Convert.ToDateTime(checkin);
+                DateTime checkOut = Convert.ToDateTime(checkout);
+
+                if (checkOut <= checkIn)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+
+            }
+
+        }
     }
 }

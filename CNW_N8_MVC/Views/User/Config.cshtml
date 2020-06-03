@@ -84,21 +84,23 @@
                                     <div class="form-row">
                                         <div class="form-group col-sm-6">
                                             <label class="fs12">Mật Khẩu Hiện Tại</label>
-                                            <input name="password" type="text" class="form-control" placeholder="Mật khẩu hiện tại">
+                                            <input name="password" type="text" class="form-control" placeholder="Mật khẩu hiện tại" id="nowPassword">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-sm-6">
                                             <label class="fs12">Mật khẩu mới</label>
-                                            <input name="newPassword1" type="text" class="form-control" placeholder="Mật khẩu mới">
+                                            <input name="newPassword1" type="text" class="form-control" placeholder="Mật khẩu mới" id="newPassword">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-sm-6">
-                                            <input name="newPassword2" type="text" class="form-control" placeholder="Nhập lại mật khẩu">
+                                            <input name="newPassword2" type="text" class="form-control" placeholder="Nhập lại mật khẩu" id="NewPassword2">
+                                            <div style="color:lawngreen; font-size:20px" id="divThongBao1"></div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-main text-main">Save</button>
+                                    <div style="color:red; font-size:20px" id="divThongBao2"></div>
+                                    <button id="saveChangePassword" type="submit" class="btn btn-main text-main">Save</button>
                                 </form>
                             </div>
                         </div>
@@ -108,3 +110,4 @@
         </div>
     </div>
 </section>
+<script src="~/Scripts/js/Config.js"></script>
