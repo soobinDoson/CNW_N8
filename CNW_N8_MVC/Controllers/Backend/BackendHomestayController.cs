@@ -10,7 +10,7 @@ using CNW_N8_MVC.Models;
 
 namespace CNW_N8_MVC.Controllers.Backend
 {
-    public class BackendHomestayController : Controller
+    public class BackendHomestayController : BaseController
     {
         private Model1 context = new Model1();
         // GET: BackendHomestay

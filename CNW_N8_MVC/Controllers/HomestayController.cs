@@ -126,12 +126,12 @@ namespace CNW_N8_MVC.Controllers
             var cart = (Cart)Session["CartSession"];
             if (cart != null)
             {
-                cart.AddItemHomestay(homestay, quantity);
+                cart.AddItemHomestay(homestay,checkIn.ToShortDateString(), checkOut.ToShortDateString(), quantity);
             }
             else
             {
                 cart = new Cart();
-                cart.AddItemHomestay(homestay, quantity);
+                cart.AddItemHomestay(homestay, checkIn.ToShortDateString(), checkOut.ToShortDateString(), quantity);
                 Session["CartSession"] = cart;
             }
 

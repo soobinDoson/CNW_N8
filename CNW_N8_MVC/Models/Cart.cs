@@ -24,12 +24,12 @@ namespace CNW_N8_MVC.Models
     {
         static List<CartItem> lineCollections = new List<CartItem>();
 
-        public void AddItemHotel(hotel hotel, int quantity)
+        public void AddItemHotel(hotel hotel,string checkin, string checkout, int quantity)
         {
-            CartItem line = lineCollections.Where(p => p.Product.Name == hotel.hotel_name).FirstOrDefault();
+            CartItem line = lineCollections.Where(p => p.Product.Id == hotel.id.ToString() && p.Product.Status_checking == "hotel" && p.Product.Checkin == checkin).FirstOrDefault();
             if(line == null)
             {
-                var prod = new Product(hotel.hotel_name, hotel.sell_price.ToString(), hotel.price.ToString(), "hotel");
+                var prod = new Product(hotel.id.ToString(), hotel.hotel_name, hotel.sell_price.ToString(), hotel.price.ToString(), "hotel",checkin, checkout);
 
                 lineCollections.Add(new CartItem(prod, quantity));
             }
@@ -39,12 +39,12 @@ namespace CNW_N8_MVC.Models
             }
             
         }
-        public void AddItemHomestay(homestay homeStay, int quantity)
+        public void AddItemHomestay(homestay homeStay,string checkin, string checkout, int quantity)
         {
-            CartItem line = lineCollections.Where(p => p.Product.Name == homeStay.homestay_name).FirstOrDefault();
+            CartItem line = lineCollections.Where(p => p.Product.Id == homeStay.id.ToString() && p.Product.Status_checking == "homestay" && p.Product.Checkin == checkin).FirstOrDefault();
             if (line == null)
             {
-                var prod = new Product(homeStay.homestay_name, homeStay.sell_price.ToString(), homeStay.price.ToString(), "homestay");
+                var prod = new Product(homeStay.id.ToString(),homeStay.homestay_name, homeStay.sell_price.ToString(), homeStay.price.ToString(), "homestay",checkin,checkout);
                 lineCollections.Add(new CartItem(prod, quantity));
             }
             else
@@ -54,7 +54,19 @@ namespace CNW_N8_MVC.Models
         }
         public void RemoveLineProduct(Product product)
         {
-            lineCollections.RemoveAll(p => p.Product.Name == product.Name);
+            if(product.Status_checking == "hotel")
+            {
+                lineCollections.RemoveAll(l => l.Product.Id == product.Id && l.Product.Status_checking == "hotel" && l.Product.Checkin == product.Checkin);
+            }
+            else if(product.Status_checking == "homestay")
+            {
+                lineCollections.RemoveAll(l => l.Product.Id == product.Id && l.Product.Status_checking == "homestay" && l.Product.Checkin == product.Checkin);
+            }
+            
+        }
+        public void Clear()
+        {
+            lineCollections.Clear();
         }
         
         public IEnumerable<CartItem> lines { get { return lineCollections; } }

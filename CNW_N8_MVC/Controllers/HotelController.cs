@@ -15,6 +15,7 @@ namespace CNW_N8_MVC.Controllers
         private Model1 context = new Model1();
         IPagedList<hotel> model;
         int quantity;
+        
         private void setUsername()
         {
             if (Session["Login"] == null)
@@ -90,7 +91,7 @@ namespace CNW_N8_MVC.Controllers
         {
             if (id.HasValue)
             {
-                setUsername();
+            setUsername();
             dynamic model = new ExpandoObject();
             model.hotels = context.hotels.Where(x => x.id != 0).ToList();
             model.hotel = context.hotels.Where(x => x.id == id).FirstOrDefault();
@@ -129,12 +130,12 @@ namespace CNW_N8_MVC.Controllers
                 var cart = (Cart)Session["CartSession"];
                 if (cart != null)
                 {
-                    cart.AddItemHotel(hotel, quantity);
+                    cart.AddItemHotel(hotel,checkIn.ToShortDateString(), checkOut.ToShortDateString(), quantity);
                 }
                 else
                 {
                     cart = new Cart();
-                    cart.AddItemHotel(hotel, quantity);
+                    cart.AddItemHotel(hotel, checkIn.ToShortDateString(), checkOut.ToShortDateString(), quantity);
                     Session["CartSession"] = cart;
                 }
 

@@ -20,6 +20,7 @@ namespace CNW_N8_MVC.Controllers
         
         public ActionResult Login()
         {
+            
             return View();
         }
         
@@ -35,13 +36,26 @@ namespace CNW_N8_MVC.Controllers
         public ActionResult LoginCenter(user acc)
         {
             var result = context.users.Where(a => (a.username == acc.username && a.password == acc.password)).FirstOrDefault();
-            if(result != null)
+            if (result != null)
             {
-                Session["Login"] = acc;
-                idAccount = result.id;
-                userName = result.username.ToString();
-                ViewData["username"] = result.username.ToString();
-                return RedirectToAction("Index", "Home");
+                if (result.role_id != 0)
+                {
+                    Session["Login"] = acc;
+                    idAccount = result.id;
+                    userName = result.username.ToString();
+                    ViewData["username"] = result.username.ToString();
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    Session["LoginBackend"] = acc;
+                    idAccount = result.id;
+                    userName = result.username.ToString();
+                    ViewData["username"] = result.username.ToString();
+                    return RedirectToAction("List", "BackendUser");
+                }
+                
+                
             }
             return View();
             
@@ -208,8 +222,140 @@ namespace CNW_N8_MVC.Controllers
             
         }
 
-        
+        public ActionResult RemoveLine(string id,string checkin, string status_checking)
+        {
+            int a;
+            bool check = int.TryParse(id, out a);
+            if(check == true)
+            {
+                if (status_checking == "hotel")
+                {
+                    var result = context.hotels.Find(a);
+                    var product = new Product(result.id.ToString(), "hotel", checkin);
+                    var cart = (Cart)Session["CartSession"];
+                    if(cart != null)
+                    {
+                        cart.RemoveLineProduct(product);
+                        return RedirectToAction("Booking", "User");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else if(status_checking == "homestay")
+                {
+                    var result = context.homestays.Find(a);
+                    var product = new Product(result.id.ToString(), "homestay", checkin);
+                    var cart = (Cart)Session["CartSession"];
+                    if (cart != null)
+                    {
+                        cart.RemoveLineProduct(product);
+                        return RedirectToAction("Booking", "User");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+        }
+        [HttpPost]
+        public ActionResult ThanhToan()
+        {
+            var cart = (Cart)Session["CartSession"];
+            var acc = context.users.Find(idAccount);
+            
+            if(cart == null || cart.lines.Count() == 0 || acc == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            else
+            {
+                foreach(var it in cart.lines)
+                {
+                    if(it.Product.Status_checking == "hotel")
+                    {
+                        DateTime checkin = Convert.ToDateTime(it.Product.Checkin);
+                        DateTime checkout = Convert.ToDateTime(it.Product.Checkout);
+                        TimeSpan t = checkout - checkin;
 
-        
+                        var ht_booking = new hotel_booking();
+                        ht_booking.customer_address = acc.address;
+                        ht_booking.customer_email = acc.email;
+                        ht_booking.customer_name = acc.full_name;
+                        ht_booking.customer_phone = acc.phone;
+                        ht_booking.user_id = acc.id;
+
+                        ht_booking.hotel_id = int.Parse(it.Product.Id);
+                        ht_booking.from_date = checkin;
+                        ht_booking.to_date = checkout;
+                        ht_booking.total_price = ((int)t.TotalDays * int.Parse(it.Product.Sell_price));
+
+                        context.hotel_booking.Add(ht_booking);
+                        context.SaveChanges();
+
+                        
+
+                    }
+                    else if(it.Product.Status_checking == "homestay")
+                    {
+                        DateTime checkin = Convert.ToDateTime(it.Product.Checkin);
+                        DateTime checkout = Convert.ToDateTime(it.Product.Checkout);
+                        TimeSpan t = checkout - checkin;
+
+                        var hstay_booking = new homestay_booking();
+                        hstay_booking.customer_address = acc.address;
+                        hstay_booking.customer_email = acc.email;
+                        hstay_booking.customer_name = acc.full_name;
+                        hstay_booking.customer_phone = acc.phone;
+                        hstay_booking.user_id = acc.id;
+
+                        hstay_booking.homestay_id = int.Parse(it.Product.Id);
+                        hstay_booking.from_date = checkin;
+                        hstay_booking.to_date = checkout;
+                        hstay_booking.total_price = ((int)t.TotalDays * int.Parse(it.Product.Sell_price));
+
+                        context.homestay_booking.Add(hstay_booking);
+                        context.SaveChanges();
+
+                        
+                    }   
+                }
+                cart.Clear();
+                return RedirectToAction("Index", "Home");
+            }
+            
+        }
+        //[HttpDelete]
+        //public ActionResult DeleteItem(int id, string status_check)
+        //{
+        //    var cart = (Cart)Session["CartSession"];
+        //    var list = cart.lines.ToList();
+        //    try
+        //    {
+        //        foreach(var it  in list)
+        //        {
+        //            if(it.Product.Id == id.ToString() && it.Product.Status_checking == status_check)
+        //            {
+        //                cart.RemoveLineProduct(it.Product);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //    }
+        //    return RedirectToAction("Booking", "User");
+        //}
     }
 }

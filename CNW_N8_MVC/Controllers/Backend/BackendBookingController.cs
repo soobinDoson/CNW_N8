@@ -10,7 +10,7 @@ using CNW_N8_MVC.Models;
 
 namespace CNW_N8_MVC.Controllers.Backend
 {
-    public class BackendBookingController : Controller
+    public class BackendBookingController : BaseController
     {
         // GET: BackendBooking
         private Model1 context = new Model1();
