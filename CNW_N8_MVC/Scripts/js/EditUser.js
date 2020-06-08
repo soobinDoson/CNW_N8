@@ -19,7 +19,7 @@ $("#username").blur(function () {
             role_id: role_id
         }
     }).done(function (thongbao) {
-        if (thongbao == 0) {
+        if (thongbao == -1) {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnSua").attr('type', 'button');
 

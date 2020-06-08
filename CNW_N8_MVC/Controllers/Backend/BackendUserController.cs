@@ -12,7 +12,7 @@ namespace CNW_N8_MVC.Controllers.Backend
     public class BackendUserController : BaseController
     {
         private Model1 context = new Model1();
-        static int idAccount;
+        static int id_old;
         // GET: User
         public ActionResult List()
         {
@@ -38,7 +38,7 @@ namespace CNW_N8_MVC.Controllers.Backend
                 }
                 else
                 {
-                    idAccount = a;
+                    id_old = a;
                     return View(model);
                 }
             }
@@ -46,18 +46,20 @@ namespace CNW_N8_MVC.Controllers.Backend
             {
                 return RedirectToAction("List", "BackendUser");
             }
-            
-            
         }
+
+
         [HttpPost]
         public ActionResult EditUser(user acc)
         {
-            var result = context.users.Find(idAccount);
+            var result = context.users.Find(id_old);
             context.users.Remove(result);
             context.users.Add(acc);
             context.SaveChanges();
             return RedirectToAction("List", "BackendUser");
         }
+
+
         [HttpPost]
         public ActionResult AddUser(user acc)
         {
@@ -94,14 +96,15 @@ namespace CNW_N8_MVC.Controllers.Backend
             else
             {
                 var result = context.users.Where(u => (u.username == username)).FirstOrDefault();
-                var oldUser = context.users.Where(u => u.id == idAccount).FirstOrDefault();
-                if (result == null || result.username == oldUser.username)
+                var userOld = context.users.Find(id_old);
+             
+                if(result == null || (result.username == userOld.username) )
                 {
                     return 1;
                 }
                 else
                 {
-                    return 0;
+                    return -1;
                 }
             }
         }
@@ -130,7 +133,13 @@ namespace CNW_N8_MVC.Controllers.Backend
             {
                 return RedirectToAction("List", "BackendUser");
             }
-            
+        }
+
+        public ActionResult LogoutBackend()
+        {
+            Session["LoginBackend"] = null;
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
