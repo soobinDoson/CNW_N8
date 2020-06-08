@@ -22,7 +22,11 @@ $("#username").blur(function () {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnThem").attr('type', 'button');
 
-        } else {
+        }else if (thongbao == -1) {
+            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#btnThem").attr('type', 'button');
+        }
+        else {
             $("#divThongBao").html("");
             $("#btnThem").attr('type', 'submit');
         }
@@ -50,6 +54,9 @@ $("#password").blur(function () {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnThem").attr('type', 'button');
 
+        } else if (thongbao == -1) {
+            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
             $("#btnThem").attr('type', 'submit');
@@ -78,6 +85,9 @@ $("#email").blur(function () {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnThem").attr('type', 'button');
 
+        } else if (thongbao == -1) {
+            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
             $("#btnThem").attr('type', 'submit');
@@ -106,6 +116,9 @@ $("#phone").blur(function () {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnThem").attr('type', 'button');
 
+        } else if (thongbao == -1) {
+            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
             $("#btnThem").attr('type', 'submit');
@@ -134,6 +147,9 @@ $("#address").blur(function () {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnThem").attr('type', 'button');
 
+        } else if (thongbao == -1) {
+            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
             $("#btnThem").attr('type', 'submit');
@@ -162,6 +178,9 @@ $("#full_name").blur(function () {
             $("#divThongBao").html("username đã có người sử dụng");
             $("#btnThem").attr('type', 'button');
 
+        } else if (thongbao == -1) {
+            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
             $("#btnThem").attr('type', 'submit');
