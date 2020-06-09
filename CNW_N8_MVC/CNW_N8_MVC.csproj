@@ -139,6 +139,7 @@
     <Compile Include="Controllers\Backend\BackendHomestayController.cs" />
     <Compile Include="Controllers\Backend\BackendHotelController.cs" />
     <Compile Include="Controllers\Backend\BackendUserController.cs" />
+    <Compile Include="Controllers\Backend\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomestayController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
@@ -180,11 +181,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\AddHomestay1.js" />
+    <Content Include="Scripts\js\AddUser.js" />
     <Content Include="Scripts\js\Config.js" />
     <Content Include="Scripts\js\DetailHomestay.js" />
     <Content Include="Scripts\js\DetailHotel.js" />
+    <Content Include="Scripts\js\EditHomestay1.js" />
+    <Content Include="Scripts\js\EditUser.js" />
     <Content Include="Scripts\js\Login.js" />
+    <Content Include="Scripts\js\LoginBackend.js" />
     <Content Include="Scripts\js\Register.js" />
+    <Content Include="Scripts\js\ThanhToan.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -220,6 +227,9 @@
     <Content Include="Views\BackendHomestay\List.cshtml" />
     <Content Include="Views\BackendBooking\List.cshtml" />
     <Content Include="Views\BackendUser\Add.cshtml" />
+    <Content Include="Views\BackendHomestay\Add.cshtml" />
+    <Content Include="Views\BackendHomestay\Edit.cshtml" />
+    <Content Include="Views\BackendUser\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

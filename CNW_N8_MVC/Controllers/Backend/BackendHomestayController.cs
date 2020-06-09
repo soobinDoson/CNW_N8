@@ -23,16 +23,23 @@ namespace CNW_N8_MVC.Controllers.Backend
         }
         public ActionResult Add()
         {
+            var listLocation = context.locations.ToList();
+            ViewData["listLocation"] = listLocation;
             return View();
         }
 
         [HttpPost]
         public ActionResult AddHomestay(homestay acc)
         {
+            acc.detail_header_image_url = "/Content/img/Group 65.png";
+            acc.image_url = "/Content/img/Group 65.png";
+            acc.more_imformation = "/Content/img/Group 65.png";
+            acc.description = "This is Description";
             context.homestays.Add(acc);
             context.SaveChanges();
             return RedirectToAction("List", "BackendHomestay");
         }
+        [HttpPost]
         public int checkAddHomeStay(string homestay_name, string location_id, string price, string sell_price)
         {
             if (homestay_name == "" || location_id == "" || price == "" || sell_price == "" )
@@ -66,6 +73,11 @@ namespace CNW_N8_MVC.Controllers.Backend
                 else
                 {
                     id_old = a;
+                    //lay danh sach location sang ben view Edit//
+
+                    var listLocation = context.locations.ToList();
+                    ViewData["listLocation"] = listLocation;
+
                     return View(model);
                 }
             }
