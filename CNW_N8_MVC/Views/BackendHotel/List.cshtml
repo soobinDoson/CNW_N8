@@ -16,6 +16,7 @@
                 <table class="table table-responsive-sm">
                     <thead>
                         <tr>
+                            <th>Tên Địa Danh</th>
                             <th>Tên khách sạn</th>
                             <th>Địa điểm</th>
                             <th>Giá</th>
@@ -25,23 +26,18 @@
                     <tbody>
                         @foreach (hotel it in Model.hotels)
                         {
-                            <tr>
-                                <td>@it.hotel_name</td>
-                                <td>@it.location.location_name</td>
-                                <td>@it.price</td>
-                                <td>@it.sell_price</td>
-                            </tr>
+                        <tr>
+                            <td>@it.location.location_name</td>
+                            <td>@it.hotel_name</td>
+                            <td>@it.location.location_name</td>
+                            <td>@it.price</td>
+                            <td>@it.sell_price</td>
+                            <td><a href="@Url.Action("Edit","BackendHotel", new { @id = it.id})">Sửa</a></td>
+                            <td><a style="color:red" href="@Url.Action("DeleteHotel","BackendHotel",new { @id = it.id})">Xoá</a></td>
+                        </tr>
                         }
                     </tbody>
                 </table>
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
             </div>
         </div>
     </div>
