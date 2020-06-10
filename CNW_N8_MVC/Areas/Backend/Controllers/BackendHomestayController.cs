@@ -38,7 +38,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             acc.description = "This is Description";
             context.homestays.Add(acc);
             context.SaveChanges();
-            return RedirectToAction("List", "BackendHomestay");
+            return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
         }
         [HttpPost]
         public int checkAddHomeStay(string homestay_name, string location_id, string price, string sell_price)
@@ -64,7 +64,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("List", "BackendHomestay");
+                return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
             }
             else
             {
@@ -75,7 +75,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     var model = context.homestays.Find(a);
                     if (model == null)
                     {
-                        return RedirectToAction("List", "BackendHomestay");
+                        return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
                     }
                     else
                     {
@@ -90,7 +90,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("List", "BackendHomestay");
+                    return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
                 }
             }
 
@@ -104,7 +104,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             context.homestays.Remove(result);
             context.homestays.Add(acc);
             context.SaveChanges();
-            return RedirectToAction("List", "BackendHomestay");
+            return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
         }
         public int checkEditHomestay(string homestay_name, string location_id, string price, string sell_price)
         {
@@ -133,7 +133,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("List", "BackendHomestay");
+                return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
             }
             else
             {
@@ -144,19 +144,19 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     var result = context.homestays.Find(a);
                     if (result == null)
                     {
-                        return RedirectToAction("List", "BackendHomestay");
+                        return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
                     }
                     else
                     {
                         context.homestays.Remove(result);
                         context.SaveChanges();
-                        return RedirectToAction("List", "BackendHomestay");
+                        return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
                     }
 
                 }
                 else
                 {
-                    return RedirectToAction("List", "BackendHomestay");
+                    return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
                 }
             }
 
@@ -166,7 +166,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             Session["LoginBackend"] = null;
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { area = "Backend" });
         }
     }
 }

@@ -29,7 +29,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("List", "BackendUser");
+                return RedirectToAction("List", "BackendUser", new { area = "Backend" });
             }
             else
             {
@@ -40,7 +40,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     var model = context.users.Find(a);
                     if (model == null)
                     {
-                        return RedirectToAction("List", "BackendUser");
+                        return RedirectToAction("List", "BackendUser", new { area = "Backend" });
                     }
                     else
                     {
@@ -50,7 +50,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("List", "BackendUser");
+                    return RedirectToAction("List", "BackendUser", new { area = "Backend" });
                 }
             }
 
@@ -65,7 +65,9 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             context.users.Remove(result);
             context.users.Add(acc);
             context.SaveChanges();
-            return RedirectToAction("List", "BackendUser");
+            
+            return RedirectToAction("List", "BackendUser", new { area = "Backend"});
+          
         }
 
 
@@ -74,7 +76,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             context.users.Add(acc);
             context.SaveChanges();
-            return RedirectToAction("List", "BackendUser");
+            return RedirectToAction("List", "BackendUser", new { area = "Backend" });
         }
         public int checkAddUser(string username, string password, string phone, string email, string address, string role_id, string full_name)
         {
@@ -123,7 +125,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("List", "BackendUser");
+                return RedirectToAction("List", "BackendUser", new { area = "Backend" });
             }
             else
             {
@@ -134,19 +136,19 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     var result = context.users.Find(a);
                     if (result == null)
                     {
-                        return RedirectToAction("List", "BackendUser");
+                        return RedirectToAction("List", "BackendUser", new { area = "Backend" });
                     }
                     else
                     {
                         context.users.Remove(result);
                         context.SaveChanges();
-                        return RedirectToAction("List", "BackendUser");
+                        return RedirectToAction("List", "BackendUser", new { area = "Backend" });
                     }
 
                 }
                 else
                 {
-                    return RedirectToAction("List", "BackendUser");
+                    return RedirectToAction("List", "BackendUser", new { area = "Backend" });
                 }
             }
 
@@ -156,7 +158,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             Session["LoginBackend"] = null;
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { area = "Backend" });
 
         }
     }

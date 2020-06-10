@@ -30,7 +30,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("List", "BackendHotel");
+                return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
             }
             else
             {
@@ -41,7 +41,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     var model = context.hotels.Find(a);
                     if (model == null)
                     {
-                        return RedirectToAction("List", "BackendHotel");
+                        return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
                     }
                     else
                     {
@@ -53,7 +53,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("List", "BackendHotel");
+                    return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
                 }
             }
 
@@ -89,7 +89,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             hotel.more_imformation_image_url = "/Content/img/Group 71.png";
             context.hotels.Add(hotel);
             context.SaveChanges();
-            return RedirectToAction("List", "BackendHotel");
+            return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
         }
 
         [HttpPost]
@@ -104,7 +104,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             context.SaveChanges();
 
 
-            return RedirectToAction("List", "BackendHotel");
+            return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
         }
 
 
@@ -112,7 +112,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("List", "BackendHotel");
+                return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
             }
             else
             {
@@ -123,19 +123,19 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     var result = context.hotels.Find(a);
                     if (result == null)
                     {
-                        return RedirectToAction("List", "BackendHotel");
+                        return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
                     }
                     else
                     {
                         context.hotels.Remove(result);
                         context.SaveChanges();
-                        return RedirectToAction("List", "BackendHotel");
+                        return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
 
                     }
                 }
                 else
                 {
-                    return RedirectToAction("List", "BackendHotel");
+                    return RedirectToAction("List", "BackendHotel", new { area = "Backend" });
                 }
             }
 

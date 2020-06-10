@@ -174,11 +174,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Backend\Views\web.config" />
     <Content Include="Areas\Backend\Views\Shared\Backend.cshtml" />
-    <Content Include="Areas\Backend\Views\BackendHome\Index.cshtml" />
-    <Content Include="Areas\Backend\Views\BackendHome\Login.cshtml" />
-    <Content Include="Areas\Backend\Views\BackendUser\Add.cshtml" />
-    <Content Include="Areas\Backend\Views\BackendUser\Edit.cshtml" />
-    <Content Include="Areas\Backend\Views\BackendUser\List.cshtml" />
     <Content Include="Areas\Backend\Views\BackendHotel\Add.cshtml" />
     <Content Include="Areas\Backend\Views\BackendHotel\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\BackendHotel\List.cshtml" />
@@ -186,6 +181,12 @@
     <Content Include="Areas\Backend\Views\BackendHomestay\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\BackendHomestay\List.cshtml" />
     <Content Include="Areas\Backend\Views\BackendBooking\List.cshtml" />
+    <Content Include="Areas\Backend\Views\Shared\List.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHome\Login.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHome\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendUser\List.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendUser\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendUser\Add.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -205,7 +206,7 @@
     <Content Include="Scripts\js\EditHotel.js" />
     <Content Include="Scripts\js\EditUser.js" />
     <Content Include="Scripts\js\Login.js" />
-    <Content Include="Scripts\js\LoginBackend.js" />
+    <Content Include="Scripts\js\LoginBackend1.js" />
     <Content Include="Scripts\js\Register.js" />
     <Content Include="Scripts\js\ThanhToan.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />

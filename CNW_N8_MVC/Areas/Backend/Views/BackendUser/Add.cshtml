@@ -1,11 +1,13 @@
 ﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Backend/Views/Shared/Backend.cshtml";
+}
+
+
 @using CNW_N8_MVC.Models;
 @model dynamic
 
-@{
-    ViewBag.Title = "List";
-    Layout = "~/Views/Shared/Backend.cshtml";
-}
 
 <div class="card">
     <div class="card-header"><strong>Basic Form</strong> Elements</div>
@@ -52,8 +54,8 @@
                 <label class="col-md-3 col-form-label" for="select1">Chức vụ</label>
                 <div class="col-md-9">
                     <select class="form-control" id="role_id" name="role_id">
-                        
-                        <option  value="0">Admin</option>
+
+                        <option value="0">Admin</option>
                         <option selected="selected" value="1">Khách hàng</option>
                     </select>
                 </div>
@@ -66,3 +68,4 @@
     </div>
 </div>
 <script src="~/Scripts/js/AddUser.js"></script>
+
