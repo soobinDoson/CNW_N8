@@ -60,25 +60,25 @@
                 </ul>
                 <ul class="navbar-nav ml-auto nav-flex-icons header-menu-right">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="@Url.Action("Booking","User")">
+                        <a class="nav-link text-white" href="@Url.Action("Booking", "User")">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
                     @if (username == null)
-                    {
+{
                     <li class="nav-item">
                         <a class="nav-link text-white" href="@Url.Action("Login", "User")">Đăng Nhập</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="@Url.Action("Register", "User")">Đăng Ký</a>
                     </li>
-                    }
-                    else
-                    {
+}
+else
+{
                         <li class="nav-item">
-                        <a class="nav-link text-white" href="@Url.Action("Config","User")">@username</a>
+                        <a class="nav-link text-white" href="@Url.Action("Config", "User")">@username</a>
                     </li>
-                    }
+}
                 </ul>
             </div>
         </nav>
@@ -89,14 +89,14 @@
                 <br>
                 <br>
                 <br>
-                <div class="j_search_box index__search_box">
+                @{/*<div class="j_search_box index__search_box">
                     <!--<form id="searchForm" action="/en-US/search" method="GET">-->
                     <input id="searchTxt" class="float-left" name="query" type="text" placeholder="Tìm kiếm địa điểm, khách sạn, homestay.." autocomplete="off">
                     <button class="bg-main" id="search_btn" data-gatag="Main Page|Search">
                         <i class="text-white fas fa-search fs22"></i>
                     </button>
                     <!--</form>-->
-                </div>
+                </div>*/}
             </div>
         </div>
 

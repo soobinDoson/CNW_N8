@@ -39,9 +39,31 @@
                                     <div class="form-row">
                                         <div class="form-group col-3">
                                             <select class="form-control sc-input" name="priceRange" id="exampleFormControlSelect1">
-                                                <option>Dưới 300.000VNĐ</option>
-                                                <option>300.000- 500.000VNĐ</option>
-                                                <option>500.000- 1.000.000VNĐ</option>
+                                                @if (priceRange == "Dưới 300.000VNĐ")
+                                                {
+                                                    <option selected="selected">Dưới 300.000VNĐ</option>
+                                                    <option>300.000- 500.000VNĐ</option>
+                                                    <option>500.000- 1.000.000VNĐ</option>
+                                                }
+                                                else if (priceRange == "300.000- 500.000VNĐ")
+                                                {
+                                                    <option>Dưới 300.000VNĐ</option>
+                                                    <option selected="selected">300.000- 500.000VNĐ</option>
+                                                    <option>500.000- 1.000.000VNĐ</option>
+                                                }
+                                                else if (priceRange == "500.000- 1.000.000VNĐ")
+                                                {
+                                                    <option>Dưới 300.000VNĐ</option>
+                                                    <option>300.000- 500.000VNĐ</option>
+                                                    <option selected="selected">500.000- 1.000.000VNĐ</option>
+                                                }
+                                                else
+                                                {
+                                                    <option>Dưới 300.000VNĐ</option>
+                                                    <option>300.000- 500.000VNĐ</option>
+                                                    <option>500.000- 1.000.000VNĐ</option>
+                                                }
+
                                             </select>
                                         </div>
                                         <div class="form-group col-3">

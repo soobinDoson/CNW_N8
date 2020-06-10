@@ -27,25 +27,34 @@ namespace CNW_N8_MVC.Controllers.Backend
         }
         public ActionResult Edit(string id)
         {
-            int a;
-            bool check = int.TryParse(id.ToString(), out a);
-            if(check == true)
-            {
-                var model = context.users.Find(a);
-                if (model == null)
-                {
-                    return RedirectToAction("List", "BackendUser");
-                }
-                else
-                {
-                    id_old = a;
-                    return View(model);
-                }
-            }
-            else
+            if(id == null)
             {
                 return RedirectToAction("List", "BackendUser");
             }
+            else
+            {
+                int a;
+                bool check = int.TryParse(id.ToString(), out a);
+                if (check == true)
+                {
+                    var model = context.users.Find(a);
+                    if (model == null)
+                    {
+                        return RedirectToAction("List", "BackendUser");
+                    }
+                    else
+                    {
+                        id_old = a;
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("List", "BackendUser");
+                }
+            }
+
+            
         }
 
 
@@ -112,27 +121,35 @@ namespace CNW_N8_MVC.Controllers.Backend
 
         public ActionResult DeleteUser(string id)
         {
-            int a;
-            bool check = int.TryParse(id.ToString(), out a);
-            if(check == true)
+            if(id == null)
             {
-                var result = context.users.Find(a);
-                if(result == null)
-                {
-                    return RedirectToAction("List", "BackendUser");
-                }
-                else
-                {
-                    context.users.Remove(result);
-                    context.SaveChanges();
-                    return RedirectToAction("List", "BackendUser");
-                }
-
+                return RedirectToAction("List","BackendUser");
             }
             else
             {
-                return RedirectToAction("List", "BackendUser");
+                int a;
+                bool check = int.TryParse(id.ToString(), out a);
+                if (check == true)
+                {
+                    var result = context.users.Find(a);
+                    if (result == null)
+                    {
+                        return RedirectToAction("List", "BackendUser");
+                    }
+                    else
+                    {
+                        context.users.Remove(result);
+                        context.SaveChanges();
+                        return RedirectToAction("List", "BackendUser");
+                    }
+
+                }
+                else
+                {
+                    return RedirectToAction("List", "BackendUser");
+                }
             }
+            
         }
 
         public ActionResult LogoutBackend()
@@ -140,6 +157,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             Session["LoginBackend"] = null;
 
             return RedirectToAction("Index", "Home");
+            
         }
     }
 }

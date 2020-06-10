@@ -38,24 +38,11 @@ namespace CNW_N8_MVC.Controllers
             var result = context.users.Where(a => (a.username == acc.username && a.password == acc.password)).FirstOrDefault();
             if (result != null)
             {
-                if (result.role_id != 0)
-                {
                     Session["Login"] = acc;
                     idAccount = result.id;
                     userName = result.username.ToString();
                     ViewData["username"] = result.username.ToString();
                     return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    Session["LoginBackend"] = acc;
-                    idAccount = result.id;
-                    userName = result.username.ToString();
-                    ViewData["username"] = result.username.ToString();
-                    return RedirectToAction("List", "BackendUser");
-                }
-                
-                
             }
             return View();
             
@@ -172,7 +159,7 @@ namespace CNW_N8_MVC.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult UserChanges(user acc)
         {
             var obj = context.users.Find(idAccount);
@@ -186,7 +173,7 @@ namespace CNW_N8_MVC.Controllers
             return RedirectToAction("Config", "User");
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult PasswordChanges(string password, string newPassword1, string newPassword2)
         {
             var obj = context.users.Find(idAccount);

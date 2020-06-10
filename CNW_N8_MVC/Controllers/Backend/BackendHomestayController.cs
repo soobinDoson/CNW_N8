@@ -21,6 +21,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             model.homestays = context.homestays.Where(x => x.id != 0).ToList();
             return View(model);
         }
+        
         public ActionResult Add()
         {
             var listLocation = context.locations.ToList();
@@ -61,30 +62,38 @@ namespace CNW_N8_MVC.Controllers.Backend
         }
         public ActionResult Edit(string id)
         {
-            int a;
-            bool check = int.TryParse(id.ToString(), out a);
-            if (check == true)
-            {
-                var model = context.homestays.Find(a);
-                if (model == null)
-                {
-                    return RedirectToAction("List", "BackendHomestay");
-                }
-                else
-                {
-                    id_old = a;
-                    //lay danh sach location sang ben view Edit//
-
-                    var listLocation = context.locations.ToList();
-                    ViewData["listLocation"] = listLocation;
-
-                    return View(model);
-                }
-            }
-            else
+            if(id == null)
             {
                 return RedirectToAction("List", "BackendHomestay");
             }
+            else
+            {
+                int a;
+                bool check = int.TryParse(id.ToString(), out a);
+                if (check == true)
+                {
+                    var model = context.homestays.Find(a);
+                    if (model == null)
+                    {
+                        return RedirectToAction("List", "BackendHomestay");
+                    }
+                    else
+                    {
+                        id_old = a;
+                        //lay danh sach location sang ben view Edit//
+
+                        var listLocation = context.locations.ToList();
+                        ViewData["listLocation"] = listLocation;
+
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("List", "BackendHomestay");
+                }
+            }
+            
         }
 
 
@@ -122,27 +131,35 @@ namespace CNW_N8_MVC.Controllers.Backend
 
         public ActionResult DeleteHomestay(string id)
         {
-            int a;
-            bool check = int.TryParse(id.ToString(), out a);
-            if (check == true)
-            {
-                var result = context.homestays.Find(a);
-                if (result == null)
-                {
-                    return RedirectToAction("List", "BackendHomestay");
-                }
-                else
-                {
-                    context.homestays.Remove(result);
-                    context.SaveChanges();
-                    return RedirectToAction("List", "BackendHomestay");
-                }
-
-            }
-            else
+            if(id == null)
             {
                 return RedirectToAction("List", "BackendHomestay");
             }
+            else
+            {
+                int a;
+                bool check = int.TryParse(id.ToString(), out a);
+                if (check == true)
+                {
+                    var result = context.homestays.Find(a);
+                    if (result == null)
+                    {
+                        return RedirectToAction("List", "BackendHomestay");
+                    }
+                    else
+                    {
+                        context.homestays.Remove(result);
+                        context.SaveChanges();
+                        return RedirectToAction("List", "BackendHomestay");
+                    }
+
+                }
+                else
+                {
+                    return RedirectToAction("List", "BackendHomestay");
+                }
+            }
+            
         }
 
         public ActionResult LogoutBackend()

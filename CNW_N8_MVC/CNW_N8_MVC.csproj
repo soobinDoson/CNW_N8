@@ -187,6 +187,7 @@
     <Content Include="Scripts\js\DetailHomestay.js" />
     <Content Include="Scripts\js\DetailHotel.js" />
     <Content Include="Scripts\js\EditHomestay1.js" />
+    <Content Include="Scripts\js\EditHotel.js" />
     <Content Include="Scripts\js\EditUser.js" />
     <Content Include="Scripts\js\Login.js" />
     <Content Include="Scripts\js\LoginBackend.js" />
@@ -230,6 +231,9 @@
     <Content Include="Views\BackendHomestay\Add.cshtml" />
     <Content Include="Views\BackendHomestay\Edit.cshtml" />
     <Content Include="Views\BackendUser\Edit.cshtml" />
+    <Content Include="Views\BackendHotel\Edit.cshtml" />
+    <Content Include="Views\BackendHotel\Add.cshtml" />
+    <Content Include="Views\Backend\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

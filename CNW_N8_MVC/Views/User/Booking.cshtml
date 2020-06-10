@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="user-main-box bg-white">
-                        <p>Danh sách đơn đặt phòng/Homestay</p>
+                        <p>Danh sách Giỏ Hàng</p>
                         <div class="p-3">
                             <div class="box-white mb30 p15">
                                 <div class="filter-header mb15">
@@ -51,7 +51,7 @@
                                             <p class=" semi-bold">Số Đêm</p>
                                         </div>
                                         <div class="col text-center">
-                                            <p class=" semi-bold">Thành Tiền</p>
+                                            <p style="margin-right:55px" class=" semi-bold">Thành Tiền</p>
                                         </div>
                                         <div class="clear-fix"></div>
                                     </div>
@@ -67,7 +67,7 @@
                                                         <div class="col">@it.Product.Name</div>
                                                         <div class="col text-center">@it.Quantity</div>
                                                         <div class="col text-center">@((it.Quantity * int.Parse(it.Product.Sell_price.ToString())).ToString()) VNĐ</div>
-                                                        <a href="@Url.Action("RemoveLine","User",new { @id = it.Product.Id, @checkin = it.Product.Checkin , @status_checking = "hotel"})">Xoá</a>
+                                                        <a style="margin-right:5px; color:red;" href="@Url.Action("RemoveLine","User",new { @id = it.Product.Id, @checkin = it.Product.Checkin , @status_checking = "hotel"})">Xoá</a>
                                                         <div class="clear-fix"></div>
                                                     </div>
                                                 }
@@ -77,7 +77,7 @@
                                                         <div class="col">@it.Product.Name</div>
                                                         <div class="col text-center">@it.Quantity</div>
                                                         <div class="col text-center">@((it.Quantity * int.Parse(it.Product.Sell_price.ToString())).ToString()) VNĐ</div>
-                                                        <a href="@Url.Action("RemoveLine","User", new {@id = it.Product.Id, @checkin = it.Product.Checkin , @status_checking = "homestay"})">Xoá</a>
+                                                        <a style="margin-right:5px; color:red;" href="@Url.Action("RemoveLine","User", new {@id = it.Product.Id, @checkin = it.Product.Checkin , @status_checking = "homestay"})">Xoá</a>
                                                         <div class="clear-fix"></div>
                                                     </div>
                                                 }
@@ -104,7 +104,7 @@
                         }
                         else
                         {
-                            <button id="btnThanhToan">Thanh Toán</button>
+                            <button style="border:2px; background-color:royalblue; color:white; font-size:20px; border-radius:8px" id="btnThanhToan">Thanh Toán</button>
                         }
 
                     </div>

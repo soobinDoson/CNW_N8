@@ -7,13 +7,20 @@ using CNW_N8_MVC.Models;
 
 namespace CNW_N8_MVC.Controllers.Backend
 {
-    public class BackendController : BaseController
+    public class BackendController : Controller
     {
         private Model1 context = new Model1();
         // GET: Backend
         public ActionResult Index()
         {
-            return View();
+            if(Session["LoginBackend"] == null)
+            {
+                return RedirectToAction("Login", "Backend");
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult Login()
         {

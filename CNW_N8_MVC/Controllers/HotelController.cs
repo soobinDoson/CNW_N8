@@ -62,18 +62,18 @@ namespace CNW_N8_MVC.Controllers
             ViewData["optionList"] = optionList;
             if (priceRange == "Dưới 300.000VNĐ")
             {
-                model = context.hotels.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.price < 300000) && h.hotel_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
+                model = context.hotels.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.sell_price < 300000) && h.hotel_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
                
             }
             if(priceRange == "300.000- 500.000VNĐ")
             {
                
-                 model = context.hotels.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.price >= 300000 && h.price <500000) && h.hotel_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
+                 model = context.hotels.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.sell_price >= 300000 && h.sell_price <500000) && h.hotel_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
             }
             if(priceRange == "500.000- 1.000.000VNĐ")
             {
         
-                  model = context.hotels.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.price >= 500000 && h.price < 1000000) && h.hotel_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
+                  model = context.hotels.OrderByDescending(h => h.id).Where(h => (h.location.location_name == locationSelect && (h.sell_price >= 500000 && h.sell_price < 1000000) && h.hotel_name.Contains(txtSearch))).ToPagedList(page ?? 1, 9);
             }
             var minPrice = model.Min(h => h.sell_price);
             var maxPrice = model.Max(h => h.sell_price);

@@ -14,18 +14,18 @@
         <form class="form-horizontal" action="/BackendHomestay/AddHomestay" method="post" enctype="multipart/form-data">
 
 
-            
+
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="select1">Địa Điểm</label>
                 <div class="col-md-9">
                     <select class="form-control" id="location_id" name="location_id">
-                        @{ List<string> listNameLocation = new List<string>(); }  
-                        @foreach(var it in listLocation)
+                        @{ List<string> listNameLocation = new List<string>(); }
+                        @foreach (var it in listLocation)
                         {
                             listNameLocation.Add(it.location_name);
                         }
 
-                        @for(int i = 0; i < listNameLocation.Count(); i++)
+                        @for (int i = 0; i < listNameLocation.Count(); i++)
                         {
                             <option value="@(i+1)">@listNameLocation[i]</option>
                         }

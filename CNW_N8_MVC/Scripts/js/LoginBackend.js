@@ -11,7 +11,7 @@ $("#login").click(function () {
         data: { user: user, pass: pass }
     }).done(function (thongbao) {
         if (thongbao == -1) {
-            $("#divThongBao").html("Tài Khoản hoặc Mật Khẩu Không Đúng !");
+            $("#divThongBao").html("Tài Khoản hoặc Mật Khẩu Không Đúng hoặc User không có quyền truy cập !");
         }
         else {
             $("#login").attr('type', 'submit');
