@@ -34,7 +34,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         {
             acc.detail_header_image_url = "/Content/img/Group 65.png";
             acc.image_url = "/Content/img/Group 65.png";
-            acc.more_imformation = "/Content/img/Group 65.png";
+            acc.more_imformation_image_url = "/Content/img/Group 65.png";
             acc.description = "This is Description";
             context.homestays.Add(acc);
             context.SaveChanges();
@@ -101,6 +101,11 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         public ActionResult EditHomestay(homestay acc)
         {
             var result = context.homestays.Find(id_old);
+            acc.detail_header_image_url = "/Content/img/Group 65.png";
+            acc.image_url = "/Content/img/Group 65.png";
+            acc.more_imformation_image_url = "/Content/img/Group 65.png";
+            acc.description = "This is Description";
+
             context.homestays.Remove(result);
             context.homestays.Add(acc);
             context.SaveChanges();
