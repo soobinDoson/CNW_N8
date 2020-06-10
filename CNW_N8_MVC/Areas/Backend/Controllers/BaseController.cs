@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
-namespace CNW_N8_MVC.Controllers.Backend
+namespace CNW_N8_MVC.Areas.Backend.Controllers
 {
     public class BaseController : Controller
     {
@@ -15,7 +14,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             if (session == null)
             {
                 filterContext.Result = new RedirectToRouteResult(
-                    new RouteValueDictionary(new { controller = "User", action = "Login"}));
+                    new RouteValueDictionary(new { controller = "BackendHome", action = "Login" }));
 
             }
 

@@ -7,7 +7,7 @@ using System.Dynamic;
 
 using CNW_N8_MVC.Models;
 
-namespace CNW_N8_MVC.Controllers.Backend
+namespace CNW_N8_MVC.Areas.Backend.Controllers
 {
     public class BackendUserController : BaseController
     {
@@ -27,7 +27,7 @@ namespace CNW_N8_MVC.Controllers.Backend
         }
         public ActionResult Edit(string id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return RedirectToAction("List", "BackendUser");
             }
@@ -54,7 +54,7 @@ namespace CNW_N8_MVC.Controllers.Backend
                 }
             }
 
-            
+
         }
 
 
@@ -85,7 +85,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             else
             {
                 var result = context.users.Where(u => (u.username == username)).FirstOrDefault();
-                if(result == null)
+                if (result == null)
                 {
                     return 1;
                 }
@@ -106,8 +106,8 @@ namespace CNW_N8_MVC.Controllers.Backend
             {
                 var result = context.users.Where(u => (u.username == username)).FirstOrDefault();
                 var userOld = context.users.Find(id_old);
-             
-                if(result == null || (result.username == userOld.username) )
+
+                if (result == null || (result.username == userOld.username))
                 {
                     return 1;
                 }
@@ -121,9 +121,9 @@ namespace CNW_N8_MVC.Controllers.Backend
 
         public ActionResult DeleteUser(string id)
         {
-            if(id == null)
+            if (id == null)
             {
-                return RedirectToAction("List","BackendUser");
+                return RedirectToAction("List", "BackendUser");
             }
             else
             {
@@ -149,7 +149,7 @@ namespace CNW_N8_MVC.Controllers.Backend
                     return RedirectToAction("List", "BackendUser");
                 }
             }
-            
+
         }
 
         public ActionResult LogoutBackend()
@@ -157,7 +157,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             Session["LoginBackend"] = null;
 
             return RedirectToAction("Index", "Home");
-            
+
         }
     }
 }

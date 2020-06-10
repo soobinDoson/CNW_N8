@@ -8,7 +8,7 @@ using System.Dynamic;
 
 using CNW_N8_MVC.Models;
 
-namespace CNW_N8_MVC.Controllers.Backend
+namespace CNW_N8_MVC.Areas.Backend.Controllers
 {
     public class BackendHomestayController : BaseController
     {
@@ -21,7 +21,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             model.homestays = context.homestays.Where(x => x.id != 0).ToList();
             return View(model);
         }
-        
+
         public ActionResult Add()
         {
             var listLocation = context.locations.ToList();
@@ -43,7 +43,7 @@ namespace CNW_N8_MVC.Controllers.Backend
         [HttpPost]
         public int checkAddHomeStay(string homestay_name, string location_id, string price, string sell_price)
         {
-            if (homestay_name == "" || location_id == "" || price == "" || sell_price == "" )
+            if (homestay_name == "" || location_id == "" || price == "" || sell_price == "")
             {
                 return -1;
             }
@@ -62,7 +62,7 @@ namespace CNW_N8_MVC.Controllers.Backend
         }
         public ActionResult Edit(string id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return RedirectToAction("List", "BackendHomestay");
             }
@@ -93,7 +93,7 @@ namespace CNW_N8_MVC.Controllers.Backend
                     return RedirectToAction("List", "BackendHomestay");
                 }
             }
-            
+
         }
 
 
@@ -131,7 +131,7 @@ namespace CNW_N8_MVC.Controllers.Backend
 
         public ActionResult DeleteHomestay(string id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return RedirectToAction("List", "BackendHomestay");
             }
@@ -159,7 +159,7 @@ namespace CNW_N8_MVC.Controllers.Backend
                     return RedirectToAction("List", "BackendHomestay");
                 }
             }
-            
+
         }
 
         public ActionResult LogoutBackend()

@@ -134,12 +134,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Backend\BackendBookingController.cs" />
-    <Compile Include="Controllers\Backend\BackendController.cs" />
-    <Compile Include="Controllers\Backend\BackendHomestayController.cs" />
-    <Compile Include="Controllers\Backend\BackendHotelController.cs" />
-    <Compile Include="Controllers\Backend\BackendUserController.cs" />
-    <Compile Include="Controllers\Backend\BaseController.cs" />
+    <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
+    <Compile Include="Areas\Backend\Controllers\BackendBookingController.cs" />
+    <Compile Include="Areas\Backend\Controllers\BackendHomestayController.cs" />
+    <Compile Include="Areas\Backend\Controllers\BackendHotelController.cs" />
+    <Compile Include="Areas\Backend\Controllers\BackendUserController.cs" />
+    <Compile Include="Areas\Backend\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Backend\Controllers\BackendHomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomestayController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
@@ -171,6 +172,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Backend\Views\web.config" />
+    <Content Include="Areas\Backend\Views\Shared\Backend.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHome\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHome\Login.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendUser\Add.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendUser\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendUser\List.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHotel\Add.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHotel\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHotel\List.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHomestay\Add.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHomestay\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendHomestay\List.cshtml" />
+    <Content Include="Areas\Backend\Views\BackendBooking\List.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -222,21 +237,11 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Shared\Backend.cshtml" />
-    <Content Include="Views\BackendUser\List.cshtml" />
-    <Content Include="Views\Backend\Index.cshtml" />
-    <Content Include="Views\BackendHotel\List.cshtml" />
-    <Content Include="Views\BackendHomestay\List.cshtml" />
-    <Content Include="Views\BackendBooking\List.cshtml" />
-    <Content Include="Views\BackendUser\Add.cshtml" />
-    <Content Include="Views\BackendHomestay\Add.cshtml" />
-    <Content Include="Views\BackendHomestay\Edit.cshtml" />
-    <Content Include="Views\BackendUser\Edit.cshtml" />
-    <Content Include="Views\BackendHotel\Edit.cshtml" />
-    <Content Include="Views\BackendHotel\Add.cshtml" />
-    <Content Include="Views\Backend\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Backend\Data\" />
+    <Folder Include="Areas\Backend\Views\Base\" />
     <Folder Include="Models\Entities\" />
     <Folder Include="Scripts\NewFolder1\" />
   </ItemGroup>

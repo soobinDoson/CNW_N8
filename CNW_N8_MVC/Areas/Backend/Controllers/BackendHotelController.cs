@@ -7,7 +7,7 @@ using System.Dynamic;
 
 using CNW_N8_MVC.Models;
 
-namespace CNW_N8_MVC.Controllers.Backend
+namespace CNW_N8_MVC.Areas.Backend.Controllers
 {
     public class BackendHotelController : BaseController
     {
@@ -28,7 +28,7 @@ namespace CNW_N8_MVC.Controllers.Backend
 
         public ActionResult Edit(string id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return RedirectToAction("List", "BackendHotel");
             }
@@ -56,9 +56,9 @@ namespace CNW_N8_MVC.Controllers.Backend
                     return RedirectToAction("List", "BackendHotel");
                 }
             }
-            
+
         }
-        public int checkAddHotel(string location_id,string hotel_name,string description,string more_imformation,string price,string sell_price)
+        public int checkAddHotel(string location_id, string hotel_name, string description, string more_imformation, string price, string sell_price)
         {
             if (location_id == "" || hotel_name == "" || description == "" || more_imformation == "" || price == "" || sell_price == "")
             {
@@ -70,9 +70,9 @@ namespace CNW_N8_MVC.Controllers.Backend
                 //  var listHotel = context.hotels.Where(h => h.location.id == int.Parse(location_id)).ToList();
                 var listHotel = context.hotels.Where(h => h.location_id == a).ToList();
 
-                foreach(var it in listHotel)
+                foreach (var it in listHotel)
                 {
-                    if(it.hotel_name == hotel_name)
+                    if (it.hotel_name == hotel_name)
                     {
                         return 0;
                     }
@@ -104,7 +104,7 @@ namespace CNW_N8_MVC.Controllers.Backend
             context.SaveChanges();
 
 
-            return RedirectToAction("List","BackendHotel");
+            return RedirectToAction("List", "BackendHotel");
         }
 
 
@@ -138,7 +138,7 @@ namespace CNW_N8_MVC.Controllers.Backend
                     return RedirectToAction("List", "BackendHotel");
                 }
             }
-            
+
         }
 
         public int checkEditHotel(string location_id, string hotel_name, string description, string more_imformation, string price, string sell_price)
