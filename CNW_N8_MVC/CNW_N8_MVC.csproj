@@ -201,7 +201,7 @@
     <Content Include="Scripts\js\AddUser.js" />
     <Content Include="Scripts\js\Config.js" />
     <Content Include="Scripts\js\DeleteBooking1.js" />
-    <Content Include="Scripts\js\DeleteRowHotelBackend.js" />
+    <Content Include="Scripts\js\DeleteRowHomestayBackend.js" />
     <Content Include="Scripts\js\DeleteUserBackend.js" />
     <Content Include="Scripts\js\DetailHomestay.js" />
     <Content Include="Scripts\js\DetailHotel.js" />

@@ -133,40 +133,54 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             }
         }
 
-
-        public ActionResult DeleteHomestay(string id)
-        {
-            if (id == null)
-            {
-                return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
-            }
-            else
-            {
-                int a;
-                bool check = int.TryParse(id.ToString(), out a);
-                if (check == true)
+        /*
+                public ActionResult DeleteHomestay(string id)
                 {
-                    var result = context.homestays.Find(a);
-                    if (result == null)
+                    if (id == null)
                     {
                         return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
                     }
                     else
                     {
-                        context.homestays.Remove(result);
-                        context.SaveChanges();
-                        return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
+                        int a;
+                        bool check = int.TryParse(id.ToString(), out a);
+                        if (check == true)
+                        {
+                            var result = context.homestays.Find(a);
+                            if (result == null)
+                            {
+                                return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
+                            }
+                            else
+                            {
+                                context.homestays.Remove(result);
+                                context.SaveChanges();
+                                return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
+                            }
+
+                        }
+                        else
+                        {
+                            return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
+                        }
                     }
 
                 }
-                else
-                {
-                    return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
-                }
+        */
+        public void DeleteHomestay(string id)
+        {
+            try
+            {
+                int ID = int.Parse(id);
+                var result = context.homestays.Find(ID);
+                context.homestays.Remove(result);
+                context.SaveChanges();
             }
+            catch(Exception)
+            {
 
+            }
         }
-
         public ActionResult LogoutBackend()
         {
             Session["LoginBackend"] = null;
