@@ -59,35 +59,41 @@
 
 
                                         <div class="panel" data-room-id="booking1">
+                                            
                                             @foreach (var it in Model.lines)
                                             {
+
                                                 if (it.Product.Status_checking == "hotel")
                                                 {
-                                                    <div class="row pt-3 pb-3 panel-row panel-border-grey" id="row_@it.Product.Id+@it.Product.Name">
+                                                    string[] data = it.Product.Checkin.Split('/');
+                                                    string checkinConvert = data[0] + data[1] + data[2];
+                                                    <div class="giohang row pt-3 pb-3 panel-row panel-border-grey" id="row_@it.Product.Id@it.Product.Status_checking@checkinConvert">
                                                         <div class="col">@it.Product.Name</div>
                                                         <div class="col text-center">@it.Quantity</div>
                                                         <div class="col text-center">@((it.Quantity * int.Parse(it.Product.Sell_price.ToString())).ToString()) VNĐ</div>
-                                                        <a style="margin-right:5px; color:red;" href="@Url.Action("RemoveLine","User",new { @id = it.Product.Id, @checkin = it.Product.Checkin , @status_checking = "hotel"})">Xoá</a>
+                                                        <a onclick="deleteRow(@it.Product.Id, '@it.Product.Status_checking','@checkinConvert','@it.Product.Checkin')"  style="margin-right:5px; color:red;">Xoá</a>
                                                         <div class="clear-fix"></div>
                                                     </div>
                                                 }
                                                 if (it.Product.Status_checking == "homestay")
                                                 {
-                                                    <div class="row pt-3 pb-3 panel-row panel-border-grey" id="row_@it.Product.Id+@it.Product.Name">
+                                                    string[] data = it.Product.Checkin.Split('/');
+                                                    string checkinConvert = data[0] + data[1] + data[2];
+                                                    <div class="giohang row pt-3 pb-3 panel-row panel-border-grey" id="row_@it.Product.Id@it.Product.Status_checking@checkinConvert">
                                                         <div class="col">@it.Product.Name</div>
                                                         <div class="col text-center">@it.Quantity</div>
                                                         <div class="col text-center">@((it.Quantity * int.Parse(it.Product.Sell_price.ToString())).ToString()) VNĐ</div>
-                                                        <a style="margin-right:5px; color:red;" href="@Url.Action("RemoveLine","User", new {@id = it.Product.Id, @checkin = it.Product.Checkin , @status_checking = "homestay"})">Xoá</a>
+                                                        <a onclick="deleteRow(@it.Product.Id, '@it.Product.Status_checking','@checkinConvert','@it.Product.Checkin')"  style="margin-right:5px; color:red;" >Xoá</a>
                                                         <div class="clear-fix"></div>
                                                     </div>
                                                 }
                                                 @*@Ajax.ActionLink("Xoa AJ", "DeleteItem", new { @id = it.Product.Id, @status_check =it.Product.Status_checking}, new AjaxOptions
-                                           {
-                                               Confirm = "are you sure ?",
-                                               OnComplete = "$('#row_"+it.Product.Id+it.Product.Name+"').remove()",
-                                               HttpMethod = "Delete"
-                                           })*@
-                                                
+                                                    {
+                                                        Confirm = "are you sure ?",
+                                                        OnComplete = "$('#row_"+it.Product.Id+it.Product.Name+"').remove()",
+                                                        HttpMethod = "Delete"
+                                                    })*@
+
 
                                             }
                                         </div>
@@ -116,4 +122,6 @@
         </div>
     </section>
 </form>
+
 <script src="~/Scripts/js/ThanhToan.js"></script>
+<script src="~/Scripts/js/DeleteBooking1.js"></script>

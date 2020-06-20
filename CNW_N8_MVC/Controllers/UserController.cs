@@ -209,51 +209,90 @@ namespace CNW_N8_MVC.Controllers
             
         }
 
-        public ActionResult RemoveLine(string id,string checkin, string status_checking)
+        public void RemoveLine(string id,string checkin, string status_checking)
         {
-            int a;
-            bool check = int.TryParse(id, out a);
-            if(check == true)
+            var cart = (Cart)Session["CartSession"];
+            if (status_checking == "hotel")
             {
-                if (status_checking == "hotel")
-                {
-                    var result = context.hotels.Find(a);
-                    var product = new Product(result.id.ToString(), "hotel", checkin);
-                    var cart = (Cart)Session["CartSession"];
-                    if(cart != null)
-                    {
-                        cart.RemoveLineProduct(product);
-                        return RedirectToAction("Booking", "User");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                else if(status_checking == "homestay")
-                {
-                    var result = context.homestays.Find(a);
-                    var product = new Product(result.id.ToString(), "homestay", checkin);
-                    var cart = (Cart)Session["CartSession"];
-                    if (cart != null)
-                    {
-                        cart.RemoveLineProduct(product);
-                        return RedirectToAction("Booking", "User");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+                int ID = int.Parse(id);
+                var result = context.hotels.Find(ID);
+                var product = new Product(result.id.ToString(), "hotel", checkin);
+                
+                cart.RemoveLineProduct(product);
+                //if (cart != null)
+                //{
+                //    cart.RemoveLineProduct(product);
+                //    return 1;
+                //}
+                //else
+                //{
+
+                //}
             }
-            else
+            else if (status_checking == "homestay")
             {
-                return RedirectToAction("Index", "Home");
+                int ID = int.Parse(id);
+                var result = context.homestays.Find(ID);
+                var product = new Product(result.id.ToString(), "homestay", checkin);
+                
+                cart.RemoveLineProduct(product);
+                //if (cart != null)
+                //{
+                //    cart.RemoveLineProduct(product);
+                //    return 1;
+                //}
+                //else
+                //{
+                //    cart.RemoveLineProduct(product);
+
+                //}
             }
+           
+
+
+            //int a;
+            //bool check = int.TryParse(id, out a);
+            //if(check == true)
+            //{
+            //    if (status_checking == "hotel")
+            //    {
+            //        var result = context.hotels.Find(a);
+            //        var product = new Product(result.id.ToString(), "hotel", checkin);
+            //        var cart = (Cart)Session["CartSession"];
+            //        if(cart != null)
+            //        {
+            //            cart.RemoveLineProduct(product);
+            //            return RedirectToAction("Booking", "User");
+            //        }
+            //        else
+            //        {
+            //            return RedirectToAction("Index", "Home");
+            //        }
+            //    }
+            //    else if(status_checking == "homestay")
+            //    {
+            //        var result = context.homestays.Find(a);
+            //        var product = new Product(result.id.ToString(), "homestay", checkin);
+            //        var cart = (Cart)Session["CartSession"];
+            //        if (cart != null)
+            //        {
+            //            cart.RemoveLineProduct(product);
+            //            return RedirectToAction("Booking", "User");
+            //        }
+            //        else
+            //        {
+            //            return RedirectToAction("Index", "Home");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("Index", "Home");
+            //    }
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
             
         }
         [HttpPost]

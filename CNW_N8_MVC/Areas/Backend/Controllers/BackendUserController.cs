@@ -121,36 +121,49 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
         }
 
 
-        public ActionResult DeleteUser(string id)
+        public void DeleteUser(string id)
         {
-            if (id == null)
+            try
             {
-                return RedirectToAction("List", "BackendUser", new { area = "Backend" });
+                int ID = int.Parse(id);
+                var result = context.users.Find(ID);
+                context.users.Remove(result);
+                context.SaveChanges();
             }
-            else
+            catch (Exception)
             {
-                int a;
-                bool check = int.TryParse(id.ToString(), out a);
-                if (check == true)
-                {
-                    var result = context.users.Find(a);
-                    if (result == null)
-                    {
-                        return RedirectToAction("List", "BackendUser", new { area = "Backend" });
-                    }
-                    else
-                    {
-                        context.users.Remove(result);
-                        context.SaveChanges();
-                        return RedirectToAction("List", "BackendUser", new { area = "Backend" });
-                    }
 
-                }
-                else
-                {
-                    return RedirectToAction("List", "BackendUser", new { area = "Backend" });
-                }
             }
+            
+
+            //if (id == null)
+            //{
+            //    return RedirectToAction("List", "BackendUser", new { area = "Backend" });
+            //}
+            //else
+            //{
+            //    int a;
+            //    bool check = int.TryParse(id.ToString(), out a);
+            //    if (check == true)
+            //    {
+            //        var result = context.users.Find(a);
+            //        if (result == null)
+            //        {
+            //            return RedirectToAction("List", "BackendUser", new { area = "Backend" });
+            //        }
+            //        else
+            //        {
+            //            context.users.Remove(result);
+            //            context.SaveChanges();
+            //            return RedirectToAction("List", "BackendUser", new { area = "Backend" });
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("List", "BackendUser", new { area = "Backend" });
+            //    }
+            //}
 
         }
 

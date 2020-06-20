@@ -29,7 +29,7 @@
 
                             @foreach (user it in Model.users)
                             {
-                                <tr>
+                                <tr id="row_@it.id">
 
                                     <td>@it.username</td>
                                     <td>@it.email</td>
@@ -44,7 +44,7 @@
                                             break;
                                     }
                                     <td><a href="@Url.Action("Edit","BackendUser", new { @id = it.id})">Sửa</a></td>
-                                    <td><a style="color:red" href="@Url.Action("DeleteUser","BackendUser",new { @id = it.id})">Xoá</a></td>
+                                    <td><a onclick="deleteRowUser(@it.id)" style="color:red;"  >Xoá</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -55,3 +55,4 @@
         </div>
     </div>
 </form>
+<script src="~/Scripts/js/DeleteUserBackend.js"></script>
