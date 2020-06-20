@@ -1,20 +1,20 @@
 ﻿
 @using CNW_N8_MVC.Models;
 @{ IEnumerable<CNW_N8_MVC.Models.location> listLocation = ViewData["listLocation"] as IEnumerable<CNW_N8_MVC.Models.location>;}
-@model dynamic
+@*@model dynamic*@
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Areas/Backend/Views/Shared/Backend.cshtml";
 }
+@model CNW_N8_MVC.Models.homestay
 
 <div class="card">
     <div class="card-header"><strong>Homestay</strong> Thêm mới Homestay</div>
     <div class="card-body">
-        <form class="form-horizontal" action="/BackendHomestay/AddHomestay" method="post" enctype="multipart/form-data">
-
-
-
+        @*@Html.BeginForm("tenactin", "tencontrolee", FormMethod.Post){*@
+        @using (Html.BeginForm("AddHomestay", "BackendHomestay", FormMethod.Post))
+        {
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="select1">Địa Điểm</label>
                 <div class="col-md-9">
@@ -30,25 +30,29 @@
                             <option value="@(i+1)">@listNameLocation[i]</option>
                         }
                     </select>
+                    @*@Html.DropDownListFor(model => model.location.location_name, new SelectList(Enum.GetValues(typeof(location.location_name))), "Select location_name", new { @class = "form-control" })*@
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="text-input">Tên Homestay</label>
                 <div class="col-md-9">
-                    <input class="form-control" id="homestay_name" type="text" name="homestay_name" placeholder="Tên Homestay">
+                    @*<input class="form-control" id="homestay_name" type="text" name="homestay_name" placeholder="Tên Homestay">*@
+                    @Html.TextBoxFor(model => model.homestay_name, new { @class = "form-control" })
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="email-input">Giá Khuyến Mại</label>
                 <div class="col-md-9">
-                    <input class="form-control" type="number" id="sell_price" name="sell_price" placeholder="Nhập Giá KM">
+                    @*<input class="form-control" type="number" id="sell_price" name="sell_price" placeholder="Nhập Giá KM">*@
+                    @Html.TextBoxFor(model => model.sell_price, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="email-input">Giá</label>
                 <div class="col-md-9">
-                    <input class="form-control" type="number" id="price" name="price" placeholder="Nhập Giá">
+                    @*<input class="form-control" type="number" id="price" name="price" placeholder="Nhập Giá">*@
+                    @Html.TextBoxFor(model => model.price, new { @class = "form-control" })
                 </div>
             </div>
 
@@ -57,7 +61,10 @@
             <div class="card-footer">
                 <button id="btnThem" class="btn btn-sm btn-primary" type="submit"> Submit</button>
             </div>
-        </form>
+
+        }
+        @*<form class="form-horizontal" action="/BackendHomestay/AddHomestay" method="post" enctype="multipart/form-data">
+            </form>*@
     </div>
 </div>
 <script src="~/Scripts/js/AddHomestay1.js"></script>

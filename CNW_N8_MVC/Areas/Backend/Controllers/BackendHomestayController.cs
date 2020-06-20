@@ -40,17 +40,32 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             context.SaveChanges();
             return RedirectToAction("List", "BackendHomestay", new { area = "Backend" });
         }
-        [HttpPost]
-        public int checkAddHomeStay(string homestay_name, string location_id, string price, string sell_price)
+
+        public int CheckNameHomestayInLocations(string location_id, string homestay_name)
         {
-            if (homestay_name == "" || location_id == "" || price == "" || sell_price == "")
+            int a = int.Parse(location_id);
+            var listHomestay = context.homestays.Where(h => h.location_id == a).ToList();
+
+            foreach (var it in listHomestay)
+            {
+                if (it.homestay_name == homestay_name)
+                {
+                    return 0;
+                }
+            }
+            return 1;
+
+        }
+        [HttpPost]
+        public int checkAddHomeStay(homestay homestay)
+        {
+            if (homestay.homestay_name == "" ||  homestay.location_id.ToString() == "" || homestay.price.ToString() == "" || homestay.sell_price.ToString() == "")
             {
                 return -1;
             }
             else
-            {
-                var result = context.homestays.Where(u => (u.homestay_name == homestay_name)).FirstOrDefault();
-                if (result == null)
+            { 
+                if (CheckNameHomestayInLocations(homestay.location_id.ToString(),homestay.homestay_name) == 1)
                 {
                     return 1;
                 }
@@ -122,7 +137,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                 var result = context.homestays.Where(u => (u.homestay_name == homestay_name)).FirstOrDefault();
                 var userOld = context.homestays.Find(id_old);
 
-                if (result == null || (result.homestay_name == userOld.homestay_name))
+                if (result == null || (result.homestay_name == userOld.homestay_name && int.Parse(location_id) == userOld.location_id) || (CheckNameHomestayInLocations(location_id, homestay_name) == 1))
                 {
                     return 1;
                 }

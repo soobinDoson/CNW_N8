@@ -26,15 +26,18 @@
                     <tbody>
                         @foreach (hotel it in Model.hotels)
                         {
-                        <tr>
-                            <td>@it.location.location_name</td>
-                            <td>@it.hotel_name</td>
-                            <td>@it.location.location_name</td>
-                            <td>@it.price</td>
-                            <td>@it.sell_price</td>
-                            <td><a href="@Url.Action("Edit","BackendHotel", new { @id = it.id})">Sửa</a></td>
-                            <td><a style="color:red" href="@Url.Action("DeleteHotel","BackendHotel",new { @id = it.id})">Xoá</a></td>
-                        </tr>
+                            <tr id="row_@it.id">
+                                <td>@it.location.location_name</td>
+                                <td>@it.hotel_name</td>
+                                <td>@it.location.location_name</td>
+                                <td>@it.price</td>
+                                <td>@it.sell_price</td>
+                                <td><a href="@Url.Action("Edit","BackendHotel", new { @id = it.id})">Sửa</a></td>
+                                <td><a onclick="deleteRowHotel(@it.id)" style="color:red">Xoá</a></td>
+                                <td>
+                                    <img height="50px" width="100px" src="@it.image_url" />
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>
@@ -42,3 +45,4 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/js/DeleteRowHotel.js"></script>

@@ -1,5 +1,11 @@
 ﻿$(document).ready(function () {
     $("#login").attr('type', 'button');
+    window.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("login").click();
+        }
+    });
 });
 
 $("#login").click(function () {

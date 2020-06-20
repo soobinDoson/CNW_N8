@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $("#btnThem").attr('type', 'button');
+    $("#btnthem").attr('type', 'button');
 })
 
 $("#hotel_name").blur(function () {
@@ -9,20 +9,25 @@ $("#hotel_name").blur(function () {
     var more_imformation = $("#more_imformation").val();
     var price = $("#price").val();
     var sell_price = $("#sell_price").val();
+    var image_url = $("customfile1").val();
+    var detail_header_image_url = $("customfile2").val();
+    var more_imformation_image_url = $("customfile3").val();
+
 
     $.ajax({
         method: "post",
         url: "/BackendHotel/checkAddHotel",
         data: {
             location_id: location_id, hotel_name: hotel_name, description: description, more_imformation: more_imformation,
-            price: price, sell_price: sell_price
+            price: price, sell_price: sell_price,
+            image_url: image_url, detail_header_image_url: detail_header_image_url, more_imformation_image_url: more_imformation_image_url
         }
     }).done(function (thongbao) {
         if (thongbao == 0) {
-            $("#divThongBao").html("Tên khách sạn bị trùng");
+            $("#divThongBao").html("tên khách sạn bị trùng");
             $("#btnThem").attr('type', 'button');
         } else if (thongbao == -1) {
-            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#divThongBao").html("thiếu thông tin");
             $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
@@ -38,20 +43,24 @@ $("#description").blur(function () {
     var more_imformation = $("#more_imformation").val();
     var price = $("#price").val();
     var sell_price = $("#sell_price").val();
+    var image_url = $("customfile1").val();
+    var detail_header_image_url = $("customfile2").val();
+    var more_imformation_image_url = $("customfile3").val();
 
     $.ajax({
         method: "post",
         url: "/BackendHotel/checkAddHotel",
         data: {
             location_id: location_id, hotel_name: hotel_name, description: description, more_imformation: more_imformation,
-            price: price, sell_price: sell_price
+            price: price, sell_price: sell_price,
+            image_url: image_url, detail_header_image_url: detail_header_image_url, more_imformation_image_url: more_imformation_image_url
         }
     }).done(function (thongbao) {
         if (thongbao == 0) {
-            $("#divThongBao").html("Tên khách sạn bị trùng");
+            $("#divThongBao").html("tên khách sạn bị trùng");
             $("#btnThem").attr('type', 'button');
         } else if (thongbao == -1) {
-            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#divThongBao").html("thiếu thông tin");
             $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
@@ -67,20 +76,23 @@ $("#more_imformation").blur(function () {
     var more_imformation = $("#more_imformation").val();
     var price = $("#price").val();
     var sell_price = $("#sell_price").val();
-
+    var image_url = $("customfile1").val();
+    var detail_header_image_url = $("customfile2").val();
+    var more_imformation_image_url = $("customfile3").val();
     $.ajax({
         method: "post",
         url: "/BackendHotel/checkAddHotel",
         data: {
             location_id: location_id, hotel_name: hotel_name, description: description, more_imformation: more_imformation,
-            price: price, sell_price: sell_price
+            price: price, sell_price: sell_price,
+            image_url: image_url, detail_header_image_url: detail_header_image_url, more_imformation_image_url: more_imformation_image_url
         }
     }).done(function (thongbao) {
         if (thongbao == 0) {
-            $("#divThongBao").html("Tên khách sạn bị trùng");
+            $("#divThongBao").html("tên khách sạn bị trùng");
             $("#btnThem").attr('type', 'button');
         } else if (thongbao == -1) {
-            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#divThongBao").html("thiếu thông tin");
             $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
@@ -96,20 +108,23 @@ $("#price").blur(function () {
     var more_imformation = $("#more_imformation").val();
     var price = $("#price").val();
     var sell_price = $("#sell_price").val();
-
+    var image_url = $("customfile1").val();
+    var detail_header_image_url = $("customfile2").val();
+    var more_imformation_image_url = $("customfile3").val();
     $.ajax({
         method: "post",
         url: "/BackendHotel/checkAddHotel",
         data: {
             location_id: location_id, hotel_name: hotel_name, description: description, more_imformation: more_imformation,
-            price: price, sell_price: sell_price
+            price: price, sell_price: sell_price,
+            image_url: image_url, detail_header_image_url: detail_header_image_url, more_imformation_image_url: more_imformation_image_url
         }
     }).done(function (thongbao) {
         if (thongbao == 0) {
-            $("#divThongBao").html("Tên khách sạn bị trùng");
+            $("#divThongBao").html("tên khách sạn bị trùng");
             $("#btnThem").attr('type', 'button');
         } else if (thongbao == -1) {
-            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#divThongBao").html("thiếu thông tin");
             $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
@@ -125,20 +140,23 @@ $("#sell_price").blur(function () {
     var more_imformation = $("#more_imformation").val();
     var price = $("#price").val();
     var sell_price = $("#sell_price").val();
-
+    var image_url = $("customfile1").val();
+    var detail_header_image_url = $("customfile2").val();
+    var more_imformation_image_url = $("customfile3").val();
     $.ajax({
         method: "post",
         url: "/BackendHotel/checkAddHotel",
         data: {
             location_id: location_id, hotel_name: hotel_name, description: description, more_imformation: more_imformation,
-            price: price, sell_price: sell_price
+            price: price, sell_price: sell_price,
+            image_url: image_url, detail_header_image_url: detail_header_image_url, more_imformation_image_url: more_imformation_image_url
         }
     }).done(function (thongbao) {
         if (thongbao == 0) {
-            $("#divThongBao").html("Tên khách sạn bị trùng");
+            $("#divThongBao").html("tên khách sạn bị trùng");
             $("#btnThem").attr('type', 'button');
         } else if (thongbao == -1) {
-            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#divThongBao").html("thiếu thông tin");
             $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
@@ -154,20 +172,23 @@ $("#location_id").blur(function () {
     var more_imformation = $("#more_imformation").val();
     var price = $("#price").val();
     var sell_price = $("#sell_price").val();
-
+    var image_url = $("customfile1").val();
+    var detail_header_image_url = $("customfile2").val();
+    var more_imformation_image_url = $("customfile3").val();
     $.ajax({
         method: "post",
         url: "/BackendHotel/checkAddHotel",
         data: {
             location_id: location_id, hotel_name: hotel_name, description: description, more_imformation: more_imformation,
-            price: price, sell_price: sell_price
+            price: price, sell_price: sell_price,
+            image_url: image_url, detail_header_image_url: detail_header_image_url, more_imformation_image_url: more_imformation_image_url
         }
     }).done(function (thongbao) {
         if (thongbao == 0) {
-            $("#divThongBao").html("Tên khách sạn bị trùng");
+            $("#divThongBao").html("tên khách sạn bị trùng");
             $("#btnThem").attr('type', 'button');
         } else if (thongbao == -1) {
-            $("#divThongBao").html("Thiếu Thông Tin");
+            $("#divThongBao").html("thiếu thông tin");
             $("#btnThem").attr('type', 'button');
         } else {
             $("#divThongBao").html("");
