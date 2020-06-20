@@ -53,11 +53,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
                     return RedirectToAction("List", "BackendUser", new { area = "Backend" });
                 }
             }
-
-
         }
-
-
         [HttpPost]
         public ActionResult EditUser(user acc)
         {
@@ -65,9 +61,7 @@ namespace CNW_N8_MVC.Areas.Backend.Controllers
             context.users.Remove(result);
             context.users.Add(acc);
             context.SaveChanges();
-            
             return RedirectToAction("List", "BackendUser", new { area = "Backend"});
-          
         }
 
 

@@ -3,7 +3,7 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Backend/Views/Shared/Backend.cshtml";
 }
-@{ IEnumerable<CNW_N8_MVC.Models.location> listLocation = ViewData["listLocation"] as IEnumerable<CNW_N8_MVC.Models.location>;}
+@{ IEnumerable<CNW_N8_MVC.Models.location> listLocation = ViewData["listLocation"] as IEnumerable<CNW_N8_MVC.Models.location>;} //gán dữ liệu controller vao model cua view
 @model CNW_N8_MVC.Models.homestay
 
 <div class="card">
